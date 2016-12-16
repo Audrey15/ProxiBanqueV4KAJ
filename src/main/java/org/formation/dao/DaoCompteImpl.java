@@ -1,11 +1,11 @@
 package org.formation.dao;
 
-import org.formation.model.Conseiller;
+import org.formation.model.CompteBancaire;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 @Repository
 @Transactional
-public class DaoConseiller extends EntityDaoImpl<Conseiller> implements IDaoConseiller {
+public class DaoCompteImpl extends EntityDaoImpl<CompteBancaire> implements IDaoCompte {
 
 }

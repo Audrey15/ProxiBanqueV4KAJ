@@ -1,11 +1,13 @@
 package org.formation.dao;
 
+
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import org.springframework.transaction.annotation.Transactional;
+
 
 public class EntityDaoImpl<E> implements IEntityDao<E> {
 
@@ -28,22 +30,24 @@ public class EntityDaoImpl<E> implements IEntityDao<E> {
 
 	}
 
+	@Transactional
 	@Override
 	public void delete(Object id) {
-		// TODO Auto-generated method stub
-
+		entityManager.remove(entityManager.find(entityClass, id));
 	}
 
+	@Transactional
 	@Override
 	public E findEById(Object id) {
-		// TODO Auto-generated method stub
-		return null;
+		return (E) entityManager.find(entityClass, id);
 	}
 
+	@SuppressWarnings("unchecked")
+	@Transactional
 	@Override
 	public List<E> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return entityManager.createQuery("Select t from " + entityClass.getSimpleName() + " t")
+				.getResultList();
 	}
 
 }
