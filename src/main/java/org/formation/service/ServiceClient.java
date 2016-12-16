@@ -2,13 +2,26 @@ package org.formation.service;
 
 import java.util.List;
 
-import org.formation.model.Client;
+import javax.annotation.Resource;
 
+import org.formation.dao.DaoClientImpl;
+import org.formation.dao.IDaoClient;
+import org.formation.dao.IEntityDao;
+import org.formation.model.Client;
+import org.springframework.stereotype.Service;
+
+@Service
 public class ServiceClient implements IServiceClient{
 
+	@Resource
+	private IDaoClient daoClient;
+	
+//	@Resource
+//	private IEntityDao<Client> dao;
+	
 	@Override
 	public void createClient(Client c) {
-		// TODO Auto-generated method stub
+		daoClient.create(c);
 		
 	}
 

@@ -2,38 +2,49 @@ package org.formation.service;
 
 import java.util.List;
 
+import javax.annotation.Resource;
+
+import org.formation.dao.IDaoConseiller;
 import org.formation.model.Client;
+import org.formation.model.Conseiller;
+import org.springframework.stereotype.Service;
 
-public class ServiceConseiller implements IServiceClient {
+@Service
+public class ServiceConseiller implements IServiceConseiller {
+
+	@Resource(name="daoConseiller")
+	private IDaoConseiller daoConseiller;
 
 	@Override
-	public void createClient(Client c) {
+	public void createConseiller(Conseiller cons) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void updateClient(Client c) {
+	public void updateConseiller(Conseiller cons) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void deleteClientById(Long idClient) {
+	public void deleteConseillerById(Conseiller cons) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public Client findClientById(Long idClient) {
+	public Conseiller findConseillerById(Conseiller cons) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<Client> findAllClients() {
+	public List<Conseiller> findAllConseiller() {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	
 
 }

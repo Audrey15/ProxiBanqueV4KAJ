@@ -6,9 +6,10 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-
+@Repository
 public class EntityDaoImpl<E> implements IEntityDao<E> {
 
 	@PersistenceContext(unitName = "persistenceUnit")
@@ -17,10 +18,18 @@ public class EntityDaoImpl<E> implements IEntityDao<E> {
 	protected E instance;
 	private Class<E> entityClass;
 
+	public EntityManager getEntityManager() {
+		return entityManager;
+	}
+
+	public void setEntityManager(EntityManager entityManager) {
+		this.entityManager = entityManager;
+	}
+
 	@Transactional
 	@Override
 	public void create(E e) {
-		entityManager.persist(e);
+		getEntityManager().persist(e);
 	}
 
 	@Transactional
