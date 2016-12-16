@@ -9,9 +9,8 @@
 
 		<class>org.formation.model.Client</class>
 		<class>org.formation.model.Conseiller</class>
+		<class>org.formation.model.DirecteurAgence</class>
 		<class>org.formation.model.CompteBancaire</class>
-		<class>org.formation.model.Personne</class>
-		<class>org.formation.model.Employe</class>
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 		<properties>
 			<property name="hibernate.hbm2ddl.auto" value="create-drop" />
