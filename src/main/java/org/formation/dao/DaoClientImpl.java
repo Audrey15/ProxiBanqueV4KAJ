@@ -1,39 +1,13 @@
 package org.formation.dao;
 
-import java.util.List;
-
 import org.formation.model.Client;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
-public class DaoClientImpl implements IDaoClient {
+@Repository
+@Transactional
+public class DaoClientImpl extends EntityDaoImpl<Client> implements IDaoClient {
 
-	@Override
-	public void createClient(Client c) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void updateClient(Client c) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void deleteClient(Client c) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public Client findClientById(Long idClient) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Client> findAllClient() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 }
