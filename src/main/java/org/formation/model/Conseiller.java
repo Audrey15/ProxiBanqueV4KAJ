@@ -14,8 +14,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import org.springframework.stereotype.Component;
+
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
+@Component
 public class Conseiller extends Employe {
 
 	@Id
