@@ -66,4 +66,7 @@ $RECYCLE.BIN/
 .project
 .settings
 .metadata
+<<<<<<< HEAD
 /target/
+=======
+>>>>>>> origin/master
