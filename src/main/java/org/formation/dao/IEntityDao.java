@@ -2,8 +2,11 @@ package org.formation.dao;
 
 import java.util.List;
 
+<<<<<<< HEAD
+=======
 
 
+>>>>>>> origin/master
 public interface IEntityDao<E> {
 
 	public void create(E e);
