@@ -16,8 +16,6 @@ public class ServiceClient implements IServiceClient{
 	@Resource
 	private IDaoClient daoClient;
 	
-//	@Resource
-//	private IEntityDao<Client> dao;
 	
 	@Override
 	public void createClient(Client c) {
