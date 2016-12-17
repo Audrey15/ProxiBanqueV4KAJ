@@ -17,34 +17,27 @@ public class ServiceConseiller implements IServiceConseiller {
 
 	@Override
 	public void createConseiller(Conseiller cons) {
-		// TODO Auto-generated method stub
-		
+		daoConseiller.create(cons);
 	}
 
 	@Override
 	public void updateConseiller(Conseiller cons) {
-		// TODO Auto-generated method stub
-		
+		daoConseiller.update(cons);
 	}
 
 	@Override
-	public void deleteConseillerById(Conseiller cons) {
-		// TODO Auto-generated method stub
-		
+	public void deleteConseillerById(Long idCons) {
+		daoConseiller.delete(idCons);
 	}
 
 	@Override
-	public Conseiller findConseillerById(Conseiller cons) {
-		// TODO Auto-generated method stub
-		return null;
+	public Conseiller findConseillerById(Long idCons) {
+		return daoConseiller.findEById(idCons);
 	}
 
 	@Override
 	public List<Conseiller> findAllConseiller() {
-		// TODO Auto-generated method stub
-		return null;
+		return daoConseiller.findAll();
 	}
-	
-	
 
 }

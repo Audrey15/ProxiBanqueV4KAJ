@@ -34,7 +34,7 @@ public class EntityDaoImpl<E> implements IEntityDao<E> {
 
 	@Transactional
 	@Override
-	public void updtate(E e) {
+	public void update(E e) {
 		entityManager.merge(e);
 
 	}

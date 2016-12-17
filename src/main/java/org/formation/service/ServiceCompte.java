@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.formation.dao.IDaoClient;
 import org.formation.dao.IDaoCompte;
 import org.formation.model.Client;
 import org.formation.model.CompteBancaire;
@@ -14,37 +15,41 @@ public class ServiceCompte implements IServiceCompte {
 
 	@Resource(name="daoCompte")
 	private IDaoCompte daoCompte;
-
+	
+	@Resource
+	private IDaoClient daoClient;
+	
 	@Override
 	public void createCompte(CompteBancaire compte) {
-		// TODO Auto-generated method stub
-		
+		daoCompte.create(compte);
 	}
 
 	@Override
 	public void updateCompte(CompteBancaire compte) {
-		// TODO Auto-generated method stub
-		
+		daoCompte.update(compte);
 	}
 
 	@Override
-	public void deleteCompteById(CompteBancaire compte) {
-		// TODO Auto-generated method stub
-		
+	public void deleteCompteById(Long numCompte) {
+		daoCompte.delete(numCompte);
 	}
 
 	@Override
 	public CompteBancaire findCompteById(Long numCompte) {
-		// TODO Auto-generated method stub
-		return null;
+		return daoCompte.findEById(numCompte);
 	}
 
 	@Override
 	public List<CompteBancaire> findAllCompte() {
-		// TODO Auto-generated method stub
-		return null;
+		return daoCompte.findAll();
 	}
-	
-	
+
+	@Override
+	public void createCompteForClient(CompteBancaire compte, Client client) {
+		daoCompte.create(compte);
+		client.addCompte(compte);
+		daoCompte.update(compte);
+		daoClient.update(client);
+	}
 
 }

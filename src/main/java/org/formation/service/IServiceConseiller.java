@@ -11,9 +11,9 @@ public interface IServiceConseiller {
 
 	public void updateConseiller(Conseiller cons);
 
-	public void deleteConseillerById(Conseiller cons);
+	public void deleteConseillerById(Long idCons);
 
-	public Conseiller findConseillerById(Conseiller cons);
+	public Conseiller findConseillerById(Long idCons);
 
 	public List<Conseiller> findAllConseiller();
 

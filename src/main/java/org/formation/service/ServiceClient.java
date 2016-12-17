@@ -6,8 +6,10 @@ import javax.annotation.Resource;
 
 import org.formation.dao.DaoClientImpl;
 import org.formation.dao.IDaoClient;
+import org.formation.dao.IDaoConseiller;
 import org.formation.dao.IEntityDao;
 import org.formation.model.Client;
+import org.formation.model.Conseiller;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -16,37 +18,40 @@ public class ServiceClient implements IServiceClient{
 	@Resource
 	private IDaoClient daoClient;
 	
-//	@Resource
-//	private IEntityDao<Client> dao;
+	@Resource
+	private IDaoConseiller daoConseiller;
 	
 	@Override
 	public void createClient(Client c) {
-		daoClient.create(c);
-		
+		daoClient.create(c);	
 	}
 
 	@Override
 	public void updateClient(Client c) {
-		// TODO Auto-generated method stub
-		
+		daoClient.update(c);
 	}
 
 	@Override
 	public void deleteClientById(Long idClient) {
-		// TODO Auto-generated method stub
-		
+		daoClient.delete(idClient);
 	}
 
 	@Override
 	public Client findClientById(Long idClient) {
-		// TODO Auto-generated method stub
-		return null;
+		return daoClient.findEById(idClient);
 	}
 
 	@Override
 	public List<Client> findAllClients() {
-		// TODO Auto-generated method stub
-		return null;
+		return daoClient.findAll();
+	}
+
+	@Override
+	public void createClientForConseiller(Client client, Conseiller conseiller) {
+		daoClient.create(client);
+		conseiller.addClient(client);
+		daoClient.update(client);
+		daoConseiller.update(conseiller);
 	}
 
 }
