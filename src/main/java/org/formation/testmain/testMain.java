@@ -1,5 +1,6 @@
 package org.formation.testmain;
 
+
 import org.formation.dao.DaoClientImpl;
 import org.formation.dao.IDaoClient;
 
@@ -16,9 +17,7 @@ public class testMain {
 
 	public static void main(String[] args) throws Exception {
 
-//		IDaoClient daoClient = new DaoClientImpl();
-		
-		// IServiceClient serviceClient = new ServiceClient();
+
 
 		ApplicationContext context = new ClassPathXmlApplicationContext(
 				"/META-INF/spring/applicationContext-db-mysql.xml");
@@ -31,11 +30,9 @@ public class testMain {
 
 		serviceClient.createClient(c);
 
-		CompteBancaire compte = new CompteBancaire();
-		serviceCompte.createCompte(compte);
-		c.addCompte(compte);
+
 		
-		serviceClient.updateClient(c);
+
 
 	}
 }

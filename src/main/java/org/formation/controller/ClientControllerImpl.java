@@ -5,13 +5,19 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.faces.bean.ManagedBean;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 
 import org.formation.model.Client;
 import org.formation.model.Conseiller;
 import org.formation.service.IServiceClient;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.context.annotation.ApplicationScope;
 
+@Controller
+@ManagedBean
+@ApplicationScope
 public class ClientControllerImpl implements IClientController {
 
 	@Resource

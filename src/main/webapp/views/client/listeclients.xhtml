@@ -11,9 +11,35 @@
 	<ui:composition template="/WEB-INF/tags/layout.xhtml">
 		<ui:define name="content">
 
+			<p:dataTable var="client" value="#{clientController.findAllClients}">
+				<p:column headerText="Nom">
+					<h:outputText value="#{client.nom}" />
+				</p:column>
 
-liste des clients
+				<p:column headerText="Prenom">
+					<h:outputText value="#{client.prenom}" />
+				</p:column>
 
+				<p:column headerText="Adresse">
+					<h:outputText value="#{client.adresse}" />
+				</p:column>
+
+				<p:column headerText="Ville">
+					<h:outputText value="#{client.ville}" />
+				</p:column>
+
+				<p:column headerText="Code Postal">
+					<h:outputText value="#{client.codePostal}" />
+				</p:column>
+
+				<p:column headerText="Email">
+					<h:outputText value="#{client.email}" />
+				</p:column>
+
+				<p:column headerText="Telephone">
+					<h:outputText value="#{client.telephone}" />
+				</p:column>
+			</p:dataTable>
 
 
 

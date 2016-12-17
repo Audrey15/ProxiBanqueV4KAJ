@@ -3,6 +3,7 @@ package org.formation.model;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.faces.bean.ManagedBean;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,13 +13,14 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+
+import org.springframework.web.context.annotation.ApplicationScope;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-@NamedQueries({ @NamedQuery(name = "clients.findAll", query = "select c from Client c") })
+@ManagedBean
+@ApplicationScope
 public class Client extends Personne {
 
 	@Id
