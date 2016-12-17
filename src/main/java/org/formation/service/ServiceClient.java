@@ -1,5 +1,6 @@
 package org.formation.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -18,11 +19,9 @@ public class ServiceClient implements IServiceClient{
 	@Resource
 	private IDaoClient daoClient;
 	
-<<<<<<< HEAD
 	@Resource
 	private IDaoConseiller daoConseiller;
-=======
->>>>>>> origin/master
+
 	
 	@Override
 	public void createClient(Client c) {
@@ -55,6 +54,18 @@ public class ServiceClient implements IServiceClient{
 		conseiller.addClient(client);
 		daoClient.update(client);
 		daoConseiller.update(conseiller);
+	}
+
+	@Override
+	public List<Client> findAllClientsByConseiller(Conseiller conseiller) {
+		List<Client> listeClients = daoClient.findAll();
+		List<Client> listeClientsByConseiller = new ArrayList<>();
+		for(Client client:listeClients){
+			if(client.getConseiller().equals(conseiller)){
+				listeClientsByConseiller.add(client);
+			}
+		}
+		return listeClientsByConseiller;
 	}
 
 }

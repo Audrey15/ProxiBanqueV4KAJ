@@ -16,6 +16,8 @@ public interface IServiceClient {
 	public Client findClientById(Long idClient);
 	
 	public List<Client> findAllClients();
+	
+	public List<Client> findAllClientsByConseiller(Conseiller conseiller);
 
 	public void createClientForConseiller(Client client, Conseiller conseiller);
 	
