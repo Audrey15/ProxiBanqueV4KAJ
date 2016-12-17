@@ -19,10 +19,6 @@ public class ServiceClient implements IServiceClient{
 	@Resource
 	private IDaoClient daoClient;
 	
-<<<<<<< HEAD
-
-=======
->>>>>>> 8b6284c1ed8b89dd674cfe8b3b38c06e4daf8d6a
 	@Resource
 	private IDaoConseiller daoConseiller;
 
@@ -62,7 +58,7 @@ public class ServiceClient implements IServiceClient{
 	}
 
 	@Override
-	public List<Client> findAllClientsByConseiller(Conseiller conseiller) {
+	public List<Client> findAllClientsByConseiller(Conseiller conseiller) throws Exception {
 		List<Client> listeClients = daoClient.findAll();
 		List<Client> listeClientsByConseiller = new ArrayList<>();
 		for(Client client:listeClients){

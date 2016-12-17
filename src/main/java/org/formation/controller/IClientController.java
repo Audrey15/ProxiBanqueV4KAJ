@@ -7,22 +7,22 @@ import org.formation.model.Conseiller;
 
 public interface IClientController {
 
-	public String createClient(Client client);
+	public String createClient(Client client) throws Exception;
 	
-	public String updateClient(Client client);
+	public String updateClient(Client client)throws Exception;
 	
-	public String deleteClientById(Long idCli);
+	public String deleteClientById(Long idCli)throws Exception;
 	
-	public List<Client> findAllClients();
+	public List<Client> findAllClients()throws Exception;
 	
-	public List<Client> findAllClientsByConseiller(Conseiller conseiller);
+	public List<Client> findAllClientsByConseiller(Conseiller conseiller)throws Exception;
 	
-	public String loadClientForUpdate(Long idCli);
+	public String loadClientForUpdate(Long idCli)throws Exception;
 
-	public String loadClientForInfo(Long idCli);
+	public String loadClientForInfo(Long idCli)throws Exception;
 
-	public String loadClientForComptes(Long idCli);
+	public String loadClientForComptes(Long idCli)throws Exception;
 
-	public String loadClientForAjoutCompte(Long idCli);
+	public String loadClientForAjoutCompte(Long idCli)throws Exception;
 	
 }

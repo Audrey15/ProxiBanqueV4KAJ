@@ -15,13 +15,12 @@ public interface IServiceClient {
 	
 	public Client findClientById(Long idClient) throws Exception;
 	
-<<<<<<< HEAD
+
 	public List<Client> findAllClients() throws Exception;
-=======
-	public List<Client> findAllClients();
+
 	
-	public List<Client> findAllClientsByConseiller(Conseiller conseiller);
->>>>>>> 8b6284c1ed8b89dd674cfe8b3b38c06e4daf8d6a
+	public List<Client> findAllClientsByConseiller(Conseiller conseiller)throws Exception ;
+
 
 	public void createClientForConseiller(Client client, Conseiller conseiller) throws Exception;
 	

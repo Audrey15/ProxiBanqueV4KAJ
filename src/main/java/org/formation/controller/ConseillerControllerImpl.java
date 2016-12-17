@@ -18,31 +18,31 @@ public class ConseillerControllerImpl implements IConseillerController{
 	private List<Client> listeConseillers = new ArrayList<>();
 	
 	@Override
-	public String createConseiller(Conseiller conseiller) {
+	public String createConseiller(Conseiller conseiller) throws Exception {
 		serviceConseiller.createConseiller(conseiller);
 		return "listeConseillers";
 	}
 
 	@Override
-	public String updateConseiller(Conseiller conseiller) {
+	public String updateConseiller(Conseiller conseiller) throws Exception{
 		// TODO Auto-generated method stub
 		return "listeConseillers";
 	}
 
 	@Override
-	public String deleteConseillerById(Long idCons) {
+	public String deleteConseillerById(Long idCons)throws Exception {
 		// TODO Auto-generated method stub
 		return "listeConseillers";
 	}
 
 	@Override
-	public List<Conseiller> findAllConseillers() {
+	public List<Conseiller> findAllConseillers() throws Exception{
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public String loadConseillerForClients(Long idCons) {
+	public String loadConseillerForClients(Long idCons) throws Exception{
 		// TODO Auto-generated method stub
 		return null;
 	}

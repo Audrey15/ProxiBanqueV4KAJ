@@ -6,13 +6,13 @@ import org.formation.model.Conseiller;
 
 public interface IConseillerController {
 	
-	public String createConseiller(Conseiller conseiller);
+	public String createConseiller(Conseiller conseiller) throws Exception;
 	
-	public String updateConseiller(Conseiller conseiller);
+	public String updateConseiller(Conseiller conseiller) throws Exception;
 	
-	public String deleteConseillerById(Long idCons);
+	public String deleteConseillerById(Long idCons) throws Exception;
 	
-	public List<Conseiller> findAllConseillers();
+	public List<Conseiller> findAllConseillers() throws Exception;
 	
-	public String loadConseillerForClients(Long idCons);
+	public String loadConseillerForClients(Long idCons) throws Exception;
 }
