@@ -6,14 +6,14 @@ public interface IEntityDao<E> {
 
 	public void create(E e) throws Exception;
 
-	public void updtate(E e) throws Exception;
+	public void update(E e) throws Exception;
 
 	public void delete(Object id) throws Exception;
 
 	public E findEById(Object id) throws Exception;
 
 	public List<E> findAll() throws Exception;
-	
+
 	long count() throws Exception;
 
 }

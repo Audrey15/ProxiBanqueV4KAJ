@@ -7,14 +7,14 @@ import org.formation.model.Conseiller;
 
 public interface IServiceConseiller {
 
-	public void createConseiller(Conseiller cons);
+	public void createConseiller(Conseiller cons) throws Exception;
 
-	public void updateConseiller(Conseiller cons);
+	public void updateConseiller(Conseiller cons) throws Exception;
 
-	public void deleteConseillerById(Conseiller cons);
+	public void deleteConseillerById(Long idCons) throws Exception;
 
-	public Conseiller findConseillerById(Conseiller cons);
+	public Conseiller findConseillerById(Long idCons) throws Exception;
 
-	public List<Conseiller> findAllConseiller();
+	public List<Conseiller> findAllConseiller() throws Exception;
 
 }

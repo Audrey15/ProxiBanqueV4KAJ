@@ -1,6 +1,5 @@
 package org.formation.dao;
 
-
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.List;
@@ -12,7 +11,6 @@ import org.hibernate.HibernateException;
 import org.springframework.transaction.annotation.Transactional;
 
 import javassist.bytecode.SignatureAttribute.TypeVariable;
-
 
 public class EntityDaoImpl<E> implements IEntityDao<E> {
 
@@ -38,9 +36,8 @@ public class EntityDaoImpl<E> implements IEntityDao<E> {
 
 	@Transactional
 	@Override
-	public void updtate(E e) throws HibernateException {
+	public void update(E e) throws HibernateException {
 		getEntityManager().merge(e);
-
 	}
 
 	@Transactional
@@ -90,5 +87,5 @@ public class EntityDaoImpl<E> implements IEntityDao<E> {
 		}
 		return entityClass;
 	}
-	
+
 }
