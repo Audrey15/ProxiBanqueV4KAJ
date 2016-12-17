@@ -1,10 +1,12 @@
 package org.formation.controller;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
@@ -12,13 +14,14 @@ import javax.faces.context.FacesContext;
 import org.formation.model.Client;
 import org.formation.model.Conseiller;
 import org.formation.service.IServiceClient;
+import org.primefaces.event.SelectEvent;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.context.annotation.ApplicationScope;
 
 @Controller
 @ManagedBean
 @ApplicationScope
-public class ClientControllerImpl implements IClientController {
+public class ClientControllerImpl implements IClientController, Serializable {
 
 	@Resource
 	IServiceClient serviceClient;
@@ -26,6 +29,16 @@ public class ClientControllerImpl implements IClientController {
 	private List<Client> listeClients = new ArrayList<>();
 	private List<Client> listeClientsByConseiller = new ArrayList<>();
 	
+	private Client client;
+	
+	public Client getClient() {
+		return client;
+	}
+
+	public void setClient(Client client) {
+		this.client = client;
+	}
+
 	@Override
 	public String createClient(Client client) throws Exception {
 		serviceClient.createClient(client);
@@ -91,5 +104,11 @@ public class ClientControllerImpl implements IClientController {
 		sessionMap.put("cl", client);
 		return "ajouterCompte";
 	}
+	
+	public void onRowSelect(SelectEvent event) {
+        FacesMessage msg = new FacesMessage("Informations Client");
+        FacesContext.getCurrentInstance().addMessage(null, msg);
+    }
+	
 
 }

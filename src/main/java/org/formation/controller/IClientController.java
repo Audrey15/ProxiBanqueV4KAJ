@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.formation.model.Client;
 import org.formation.model.Conseiller;
+import org.primefaces.event.SelectEvent;
 
 public interface IClientController {
 
@@ -24,5 +25,9 @@ public interface IClientController {
 	public String loadClientForComptes(Long idCli)throws Exception;
 
 	public String loadClientForAjoutCompte(Long idCli)throws Exception;
+	
+	public void onRowSelect(SelectEvent event);
+	
+	
 	
 }

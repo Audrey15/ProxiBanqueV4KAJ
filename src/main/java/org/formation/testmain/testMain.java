@@ -24,11 +24,13 @@ public class testMain {
 		IServiceClient serviceClient = context.getBean("serviceClient", ServiceClient.class);
 		IServiceCompte serviceCompte = context.getBean(ServiceCompte.class);
 
-		Client c = new Client();
+		Client c = new Client("c1", "c1", "c1", "c1", "c1", "c1", "c1");
+		Client c2 = new Client("c2", "c2", "c2", "c2", "c2", "c2", "c2");
 		// System.out.println(serviceClient);
 		// System.out.println(c);
 
 		serviceClient.createClient(c);
+		serviceClient.createClient(c2);
 
 
 		
