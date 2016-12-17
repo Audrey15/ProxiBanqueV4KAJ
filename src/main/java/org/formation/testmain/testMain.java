@@ -1,11 +1,5 @@
 package org.formation.testmain;
 
-<<<<<<< HEAD
-public class testMain {
-
-	public static void main(String[] args) {
-
-=======
 import org.formation.dao.DaoClientImpl;
 import org.formation.dao.IDaoClient;
 
@@ -22,7 +16,8 @@ public class testMain {
 
 	public static void main(String[] args) throws Exception {
 
-		IDaoClient daoClient = new DaoClientImpl();
+//		IDaoClient daoClient = new DaoClientImpl();
+		
 		// IServiceClient serviceClient = new ServiceClient();
 
 		ApplicationContext context = new ClassPathXmlApplicationContext(
@@ -34,13 +29,13 @@ public class testMain {
 		// System.out.println(serviceClient);
 		// System.out.println(c);
 
-		daoClient.create(c);
+		serviceClient.createClient(c);
 
 		CompteBancaire compte = new CompteBancaire();
 		serviceCompte.createCompte(compte);
 		c.addCompte(compte);
+		
 		serviceClient.updateClient(c);
 
->>>>>>> origin/master
 	}
 }

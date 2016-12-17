@@ -11,6 +11,9 @@ import org.formation.config.ConfigurationClasse;
 import org.formation.dao.DaoClientImpl;
 import org.formation.dao.DaoCompteImpl;
 import org.formation.dao.DaoConseillerImpl;
+import org.formation.dao.IDaoClient;
+import org.formation.dao.IDaoCompte;
+import org.formation.dao.IDaoConseiller;
 import org.formation.model.Client;
 import org.formation.model.CompteBancaire;
 import org.formation.model.Conseiller;
@@ -28,36 +31,50 @@ public class persistenceTest {
 	private EntityManager entityManager;
 	
 	@Autowired
-	DaoClientImpl daoClient;
+	IDaoClient daoClient;
 	
 	@Autowired
-	DaoConseillerImpl daoConseiller;
+	IDaoConseiller daoConseiller;
 	
 	@Autowired
-	DaoCompteImpl daoCompte;
+	IDaoCompte daoCompte;
 	
 	@Test
 	@Transactional
 	public void testDaoClientImpl() throws Exception {
 		Client client = new Client();
 		daoClient.create(client);
-		assertNotNull(daoClient);
+		assertEquals(2, daoClient.count());
+	}
+	
+	@Test
+	@Transactional
+	public void testDaoConseillerImpl() throws Exception {
+		Conseiller cons = new Conseiller();
+		daoConseiller.create(cons);
+		assertEquals(1, daoConseiller.count());
+	}
+
+	@Test
+	@Transactional
+	public void testDaoCompteImpl() throws Exception {
+		CompteBancaire compte = new CompteBancaire();
+		daoCompte.create(compte);
+		assertEquals(2, daoCompte.count());
 	}
 	
 //	@Test
 //	@Transactional
-//	public void testDaoConseillerImpl() throws Exception {
-//		Conseiller cons = new Conseiller();
-//		daoConseiller.create(cons);
-//		assertEquals(1, daoConseiller.count());
-//	}
+//	public void testSauverClientAvecCompte() throws Exception {
+//		Client client = new Client();
+//		client.getListeComptes().add(new CompteBancaire());
+//		entityManager.persist(client);
+//		entityManager.flush();
+//		entityManager.clear();
+//		Client autre = entityManager.find(Client.class, client.getId());
+//		assertEquals(0, autre.getListeComptes().size());
+//		assertEquals(autre, autre.getListeComptes().iterator().next().getClient());
 //
-//	@Test
-//	@Transactional
-//	public void testDaoCompteImpl() throws Exception {
-//		CompteBancaire compte = new CompteBancaire();
-//		daoCompte.create(compte);
-//		assertEquals(1, daoCompte.count());
 //	}
 	
 }

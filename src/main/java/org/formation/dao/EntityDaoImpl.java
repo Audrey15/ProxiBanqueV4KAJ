@@ -8,10 +8,12 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import org.hibernate.HibernateException;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import javassist.bytecode.SignatureAttribute.TypeVariable;
 
+@Repository
 public class EntityDaoImpl<E> implements IEntityDao<E> {
 
 	@PersistenceContext(unitName = "persistenceUnit")
