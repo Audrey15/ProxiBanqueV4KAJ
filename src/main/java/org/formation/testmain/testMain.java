@@ -1,11 +1,7 @@
 package org.formation.testmain;
 
-<<<<<<< HEAD
-public class testMain {
 
-	public static void main(String[] args) {
 
-=======
 import org.formation.dao.DaoClientImpl;
 import org.formation.dao.IDaoClient;
 
@@ -41,6 +37,5 @@ public class testMain {
 		c.addCompte(compte);
 		serviceClient.updateClient(c);
 
->>>>>>> origin/master
 	}
 }

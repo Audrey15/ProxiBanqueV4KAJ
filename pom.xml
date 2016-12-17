@@ -65,8 +65,8 @@
 		</dependency>
         <dependency>
 		<groupId>org.primefaces.themes</groupId>
-		<artifactId>glass-x</artifactId>
-		<version>1.0.6</version>
+		<artifactId>delta</artifactId>
+		<version>1.0.10</version>
 	</dependency>
         <!-- Hibernate 4.3.6 core library library -->
         <dependency>

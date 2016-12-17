@@ -11,9 +11,23 @@
 	<ui:composition template="/WEB-INF/tags/layout.xhtml">
 		<ui:define name="content">
 
-
-liste des clients
-
+<p:dataTable var="car" value="#{dtBasicView.cars}">
+    <p:column headerText="Id">
+        <h:outputText value="#{car.id}" />
+    </p:column>
+ 
+    <p:column headerText="Year">
+        <h:outputText value="#{car.year}" />
+    </p:column>
+ 
+    <p:column headerText="Brand">
+        <h:outputText value="#{car.brand}" />
+    </p:column>
+ 
+    <p:column headerText="Color">
+        <h:outputText value="#{car.color}" />
+    </p:column>
+</p:dataTable>
 
 
 
