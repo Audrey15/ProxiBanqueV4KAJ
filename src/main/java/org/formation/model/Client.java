@@ -12,32 +12,33 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
 @Entity
-@Inheritance(strategy=InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.JOINED)
+@NamedQueries({ @NamedQuery(name = "clients.findAll", query = "select c from Client c") })
 public class Client extends Personne {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long idClient;
 
-	@ManyToOne(cascade = {CascadeType.PERSIST})
-	@JoinColumn(name="conseiller_id")
+	@ManyToOne(cascade = { CascadeType.PERSIST })
+	@JoinColumn(name = "conseiller_id")
 	private Conseiller conseiller;
-	
-	@OneToMany(mappedBy="client", cascade = {CascadeType.PERSIST})
+
+	@OneToMany(mappedBy = "client", cascade = { CascadeType.PERSIST })
 	private Set<CompteBancaire> listeComptes = new HashSet<>();
-	
+
 	public Client() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Client(String nom, String prenom, String email, String telephone, String adresse, String ville,
 			String codePostal) {
 		super(nom, prenom, email, telephone, adresse, ville, codePostal);
-		// TODO Auto-generated constructor stub
 	}
 
 	public Long getId() {
@@ -59,10 +60,10 @@ public class Client extends Personne {
 	public void setListeComptes(Set<CompteBancaire> listeComptes) {
 		this.listeComptes = listeComptes;
 	}
-	
-	public void addCompte(CompteBancaire compte){
+
+	public void addCompte(CompteBancaire compte) {
 		listeComptes.add(compte);
 		compte.setClient(this);
 	}
-	
+
 }

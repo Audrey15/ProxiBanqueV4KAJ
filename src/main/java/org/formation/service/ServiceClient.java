@@ -10,7 +10,7 @@ import org.formation.dao.IEntityDao;
 import org.formation.model.Client;
 import org.springframework.stereotype.Service;
 
-@Service
+@Service("serviceClient")
 public class ServiceClient implements IServiceClient{
 
 	@Resource
@@ -19,7 +19,11 @@ public class ServiceClient implements IServiceClient{
 	
 	@Override
 	public void createClient(Client c) {
-		daoClient.create(c);
+		try {
+			daoClient.create(c);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 	}
 

@@ -4,14 +4,16 @@ import java.util.List;
 
 public interface IEntityDao<E> {
 
-	public void create(E e);
+	public void create(E e) throws Exception;
 
-	public void updtate(E e);
+	public void updtate(E e) throws Exception;
 
-	public void delete(Object id);
+	public void delete(Object id) throws Exception;
 
-	public E findEById(Object id);
+	public E findEById(Object id) throws Exception;
 
-	public List<E> findAll();
+	public List<E> findAll() throws Exception;
+	
+	long count() throws Exception;
 
 }
