@@ -1,15 +1,17 @@
 package org.formation.dao;
 
-
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import org.springframework.stereotype.Repository;
+import org.hibernate.HibernateException;
 import org.springframework.transaction.annotation.Transactional;
 
-@Repository
+import javassist.bytecode.SignatureAttribute.TypeVariable;
+
 public class EntityDaoImpl<E> implements IEntityDao<E> {
 
 	@PersistenceContext(unitName = "persistenceUnit")
@@ -28,35 +30,62 @@ public class EntityDaoImpl<E> implements IEntityDao<E> {
 
 	@Transactional
 	@Override
-	public void create(E e) {
+	public void create(E e) throws HibernateException {
 		getEntityManager().persist(e);
 	}
 
 	@Transactional
 	@Override
-	public void updtate(E e) {
-		entityManager.merge(e);
-
+	public void update(E e) throws HibernateException {
+		getEntityManager().merge(e);
 	}
 
 	@Transactional
 	@Override
-	public void delete(Object id) {
-		entityManager.remove(entityManager.find(entityClass, id));
+	public void delete(Object id) throws Exception {
+		getEntityManager().remove(getEntityManager().find(getEntityClass(), id));
 	}
 
-	@Transactional
+	@Transactional(readOnly = true)
 	@Override
 	public E findEById(Object id) {
-		return (E) entityManager.find(entityClass, id);
+		return (E) getEntityManager().find(entityClass, id);
+	}
+
+	@Transactional(readOnly = true)
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<E> findAll() throws Exception {
+		return getEntityManager().createQuery("Select t from " + getEntityClass().getSimpleName() + " t")
+				.getResultList();
+	}
+
+	@Override
+	public long count() throws Exception {
+		return (Long) getEntityManager().createQuery("Select count(t) from " + getEntityClass().getSimpleName() + " t")
+				.getSingleResult();
 	}
 
 	@SuppressWarnings("unchecked")
-	@Transactional
-	@Override
-	public List<E> findAll() {
-		return entityManager.createQuery("Select t from " + entityClass.getSimpleName() + " t")
-				.getResultList();
+	public Class<E> getEntityClass() throws Exception {
+		if (entityClass == null) {
+			Type type = getClass().getGenericSuperclass();
+			if (type instanceof ParameterizedType) {
+				ParameterizedType paramType = (ParameterizedType) type;
+				if (paramType.getActualTypeArguments().length == 2) {
+					if (paramType.getActualTypeArguments()[1] instanceof TypeVariable) {
+						throw new IllegalArgumentException("Can't find class using reflection");
+					} else {
+						entityClass = (Class<E>) paramType.getActualTypeArguments()[1];
+					}
+				} else {
+					entityClass = (Class<E>) paramType.getActualTypeArguments()[0];
+				}
+			} else {
+				throw new Exception("Can't find class using reflection");
+			}
+		}
+		return entityClass;
 	}
 
 }
