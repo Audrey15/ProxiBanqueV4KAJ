@@ -18,8 +18,11 @@ public class ServiceClient implements IServiceClient{
 	@Resource
 	private IDaoClient daoClient;
 	
+<<<<<<< HEAD
 	@Resource
 	private IDaoConseiller daoConseiller;
+=======
+>>>>>>> origin/master
 	
 	@Override
 	public void createClient(Client c) {
