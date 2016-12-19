@@ -46,9 +46,8 @@ public class ServiceCompte implements IServiceCompte {
 	}
 
 	@Override
-	public void createCompteForClient(CompteBancaire compte, Client client) throws Exception {
-		client.getListeComptes().add(compte);
-		compte.setClient(client);
+	public void createCompteForClient(CompteBancaire compte, Client client)throws Exception {
+		client.addCompte(compte);
 		daoClient.update(client);
 	}
 

@@ -16,6 +16,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import org.hibernate.annotations.FetchProfile;
 import org.springframework.web.context.annotation.ApplicationScope;
 
 @Entity
@@ -32,7 +33,8 @@ public class Client extends Personne {
 	@JoinColumn(name = "conseiller_id")
 	private Conseiller conseiller;
 
-	@OneToMany(mappedBy = "client", cascade = { CascadeType.ALL } )
+
+	@OneToMany(mappedBy = "client", cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch=FetchType.EAGER)
 	private Set<CompteBancaire> listeComptes = new HashSet<>();
 
 	public Client() {

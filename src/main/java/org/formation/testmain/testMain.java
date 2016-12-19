@@ -6,6 +6,7 @@ import org.formation.dao.IDaoClient;
 import org.formation.model.Client;
 import org.formation.model.CompteBancaire;
 import org.formation.model.Conseiller;
+import org.formation.model.TypeCompte;
 import org.formation.service.IServiceClient;
 import org.formation.service.IServiceCompte;
 import org.formation.service.IServiceConseiller;
@@ -24,6 +25,7 @@ public class testMain {
 		IServiceClient serviceClient = context.getBean("serviceClient", ServiceClient.class);
 		IServiceCompte serviceCompte = context.getBean(ServiceCompte.class);
 		IServiceConseiller serviceConseiller = context.getBean(ServiceConseiller.class);
+
 
 		IDaoClient dao = new DaoClientImpl();
 		
@@ -58,5 +60,21 @@ public class testMain {
 		//CompteBancaire compte = serviceCompte.findCompteByNum(numCompte); 
 		
 		serviceCompte.createCompteForClient(compte, client);
+
+//		Client c = new Client("c1", "c1", "c1", "c1", "c1", "c1", "c1");
+//		Client c2 = new Client("c2", "c2", "c2", "c2", "c2", "c2", "c2");
+//		
+//
+//		Conseiller cons1 = new Conseiller("cons1", "cons1", "cons1", "cons1", "cons1", "cons1", "cons1", "cons1",
+//				"cons1");
+//		
+//		serviceConseiller.createConseiller(cons1);
+		
+		CompteBancaire com = new CompteBancaire(300.0, TypeCompte.COURANT);
+		com.setClient(serviceClient.findClientById(5L));
+		serviceCompte.createCompte(com);
+		
+		
+
 	}
 }

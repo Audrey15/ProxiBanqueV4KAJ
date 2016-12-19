@@ -3,6 +3,7 @@ package org.formation.model;
 import javax.faces.bean.ManagedBean;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -24,7 +25,8 @@ public class CompteBancaire {
 	
 	private TypeCompte typeCompte;
 
-	@ManyToOne
+
+	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch=FetchType.EAGER)
 	@JoinColumn(name = "client_id")
 	private Client client;
 	
@@ -32,9 +34,8 @@ public class CompteBancaire {
 		super();
 	}
 
-	public CompteBancaire(Long numCompte, double solde, TypeCompte typeCompte) {
+	public CompteBancaire(double solde, TypeCompte typeCompte) {
 		super();
-		this.numCompte = numCompte;
 		this.solde = solde;
 		this.typeCompte = typeCompte;
 	}

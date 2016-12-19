@@ -40,19 +40,21 @@ public class CompteControllerImpl implements ICompteController{
 	@Override
 	public String createCompteForClient(CompteBancaire compte, Client client) throws Exception {
 		serviceCompte.createCompteForClient(compte, client);
-		return "listecomptes";
+		return "/views/client/listeclients";
+
 	}
 
 	@Override
 	public String updateCompte(CompteBancaire compte) throws Exception {
 		serviceCompte.updateCompte(compte);
-		return "listecomptes";
+		return "/views/compte/listecomptes";
+
 	}
 
 	@Override
 	public String deleteCompteByNum(Long numCompte) throws Exception {
 		serviceCompte.deleteCompteByNum(numCompte);
-		return "listecomptes";
+		return "/views/compte/listecomptes";
 	}
 
 	@Override
@@ -77,7 +79,7 @@ public class CompteControllerImpl implements ICompteController{
 	@Override
 	public String virement(CompteBancaire compte1, CompteBancaire compte2, double montant) throws Exception {
 		serviceCompte.virement(compte1, compte2, montant);
-		return "listecomptes";
+		return "/views/compte/listecomptes";
 	}
 	
 }
