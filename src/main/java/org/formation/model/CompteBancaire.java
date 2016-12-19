@@ -25,8 +25,7 @@ public class CompteBancaire {
 	
 	private TypeCompte typeCompte;
 
-
-	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch=FetchType.EAGER)
+	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
 	@JoinColumn(name = "client_id")
 	private Client client;
 	
