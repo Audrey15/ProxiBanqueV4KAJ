@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.formation.model.Client;
 import org.formation.model.CompteBancaire;
+import org.formation.model.Conseiller;
 
 public interface IServiceCompte {
 
@@ -11,11 +12,13 @@ public interface IServiceCompte {
 
 	public void updateCompte(CompteBancaire compte) throws Exception;
 
-	public void deleteCompteById(Long numCompte) throws Exception;
+	public void deleteCompteByNum(Long numCompte) throws Exception;
 
-	public CompteBancaire findCompteById(Long numCompte) throws Exception;
+	public CompteBancaire findCompteByNum(Long numCompte) throws Exception;
 
 	public List<CompteBancaire> findAllCompte() throws Exception;
+	
+	public List<CompteBancaire> findAllComptesByClient(Client client)throws Exception ;
 
 	public void createCompteForClient(CompteBancaire compte, Client client) throws Exception;
 }

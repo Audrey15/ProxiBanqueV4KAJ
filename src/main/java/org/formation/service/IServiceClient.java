@@ -15,12 +15,9 @@ public interface IServiceClient {
 	
 	public Client findClientById(Long idClient) throws Exception;
 	
-
 	public List<Client> findAllClients() throws Exception;
 
-	
 	public List<Client> findAllClientsByConseiller(Conseiller conseiller)throws Exception ;
-
 
 	public void createClientForConseiller(Client client, Conseiller conseiller) throws Exception;
 	
