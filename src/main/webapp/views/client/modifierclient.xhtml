@@ -12,7 +12,76 @@
 
 			<p:fieldset legend="Mettre à jour un client" style="margin-bottom:20px">
 
-hello
+<center>
+					<h:form>
+						<p:messages autoUpdate="true" />
+				
+
+						<h:panelGrid id="grid" columns="4" cellpadding="5">
+
+							<h:outputLabel for="nom" value="nom *" />
+							<div>&nbsp;</div>
+							<p:inputText id="nom" value="#{client.nom}" required="true"
+								label="Nom" />
+
+							<p:message for="nom" />
+
+
+							<h:outputLabel for="prenom" value="prénom *" />
+							<div>&nbsp;</div>
+							<p:inputText id="prenom" value="#{client.prenom}" required="true"
+								label="Prenom" validatorMessage="prénom non valide" />
+							<p:message for="prenom" />
+
+
+							<h:outputLabel for="email" value="email *" />
+							<div>&nbsp;</div>
+							<p:inputText id="email" value="#{client.email}" required="true"
+								label="Email" validatorMessage="email non valide">
+								<f:validateRegex
+									pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+							</p:inputText>
+							<p:message for="email" />
+
+							<h:outputLabel for="telephone" value="telephone *" />
+							<div>&nbsp;</div>
+							<p:inputText id="telephone" value="#{client.telephone}"
+								required="true" label="Telephone"
+								validatorMessage="telephone non valide">
+								<f:validateRegex pattern="^[0-9]{10}$" />
+							</p:inputText>
+							<p:message for="telephone" />
+
+
+							<h:outputLabel for="adresse" value="adresse *" />
+							<div>&nbsp;</div>
+							<p:inputText id="adresse" value="#{client.adresse}"
+								required="true" label="Adresse" />
+							<p:message for="adresse" />
+
+							<h:outputLabel for="ville" value="ville *" />
+							<div>&nbsp;</div>
+							<p:inputText id="ville" value="#{client.ville}" required="true"
+								label="Ville" validatorMessage="ville non valide" />
+							<p:message for="ville" />
+
+							<h:outputLabel for="codePostal" value="code postal *" />
+							<div>&nbsp;</div>
+							<p:inputText id="codePostal" value="#{client.codePostal}"
+								required="true" label="Code postal"
+								validatorMessage="code postal non valide">
+								<f:validateRegex pattern="^[0-9]{5}$" />
+							</p:inputText>
+							<p:message for="codePostal" />
+
+						</h:panelGrid>
+
+						<br />
+
+						<p:commandButton value="ajouter" action="#{clientControllerImpl.createClient(client)}" icon="ui-icon-check"
+							validateClient="true" />
+					</h:form>
+				</center>
 </p:fieldset>
 
 		</ui:define>
