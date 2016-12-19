@@ -57,6 +57,11 @@
 					<label class="sr-only">Retour</label>
 					<h:commandButton value="Retour" action="listeclients" />
 				</div>
+				
+				<div class="form-group">
+					<label class="sr-only">Modifier</label>
+					<h:commandButton value="Modifier" action="#{clientControllerImpl.loadClientForUpdate(cl.idClient)}" />
+				</div>
 
 			</h:form>
 

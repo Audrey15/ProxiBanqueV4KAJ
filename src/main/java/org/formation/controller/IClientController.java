@@ -26,8 +26,6 @@ public interface IClientController {
 
 	public String loadClientForAjoutCompte(Long idCli)throws Exception;
 	
-	public void onRowSelect(SelectEvent event);
-	
 	
 	
 }

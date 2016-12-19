@@ -1,5 +1,6 @@
 package org.formation.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -30,12 +31,12 @@ public class ServiceCompte implements IServiceCompte {
 	}
 
 	@Override
-	public void deleteCompteById(Long numCompte)throws Exception {
+	public void deleteCompteByNum(Long numCompte)throws Exception {
 		daoCompte.delete(numCompte);
 	}
 
 	@Override
-	public CompteBancaire findCompteById(Long numCompte) throws Exception{
+	public CompteBancaire findCompteByNum(Long numCompte) throws Exception{
 		return daoCompte.findEById(numCompte);
 	}
 
@@ -50,6 +51,18 @@ public class ServiceCompte implements IServiceCompte {
 		client.addCompte(compte);
 		daoCompte.update(compte);
 		daoClient.update(client);
+	}
+
+	@Override
+	public List<CompteBancaire> findAllComptesByClient(Client client) throws Exception {
+		List<CompteBancaire> listeComptes = daoCompte.findAll();
+		List<CompteBancaire> listeComptesByClient = new ArrayList<>();
+		for(CompteBancaire compte:listeComptes){
+			if(compte.getClient().equals(client)){
+				listeComptesByClient.add(compte);
+			}
+		}
+		return listeComptesByClient;
 	}
 
 }

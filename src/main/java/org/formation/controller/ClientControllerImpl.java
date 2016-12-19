@@ -69,46 +69,36 @@ public class ClientControllerImpl implements IClientController, Serializable {
 		return listeClientsByConseiller;
 	}
 
-	@Override
-	public String loadClientForUpdate(Long idCli) throws Exception{
+	public void loadClient(Long idCli) throws Exception{
 		Client client = serviceClient.findClientById(idCli);
 		ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
 		Map<String, Object> sessionMap = externalContext.getSessionMap();
 		sessionMap.put("cl", client);
-		return "modifierClient";
+	}
+	
+	@Override
+	public String loadClientForUpdate(Long idCli) throws Exception{
+		loadClient(idCli);
+		return "modifierclient";
 	}
 
 	@Override
 	public String loadClientForInfo(Long idCli) throws Exception{
-		Client client = serviceClient.findClientById(idCli);
-		ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
-		Map<String, Object> sessionMap = externalContext.getSessionMap();
-		sessionMap.put("cl", client);
+		loadClient(idCli);
 		return "infoclient";
 	}
 
 	@Override
 	public String loadClientForComptes(Long idCli) throws Exception{
-		Client client = serviceClient.findClientById(idCli);
-		ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
-		Map<String, Object> sessionMap = externalContext.getSessionMap();
-		sessionMap.put("cl", client);
+		loadClient(idCli);
 		return "listeComptesClient";
 	}
 
 	@Override
 	public String loadClientForAjoutCompte(Long idCli) throws Exception{
-		Client client = serviceClient.findClientById(idCli);
-		ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
-		Map<String, Object> sessionMap = externalContext.getSessionMap();
-		sessionMap.put("cl", client);
+		loadClient(idCli);
 		return "ajouterCompte";
 	}
-	
-	public void onRowSelect(SelectEvent event) {
-        FacesMessage msg = new FacesMessage("Informations Client");
-        FacesContext.getCurrentInstance().addMessage(null, msg);
-    }
 	
 
 }
