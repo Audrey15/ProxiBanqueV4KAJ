@@ -10,74 +10,60 @@
 
 	<ui:composition template="/WEB-INF/tags/layout.xhtml">
 		<ui:define name="content">
-			<p:fieldset legend="Informations Conseiller"
-				style="margin-bottom:20px">
-				<center>
-					<h:form id="form">
-
-						<h:panelGrid id="grid" columns="3" cellpadding="5">
-
-<<<<<<< HEAD
-							<h:outputLabel>nom</h:outputLabel>
-=======
-
-							<h:outputLabel>Nom</h:outputLabel>
->>>>>>> origin/master
-							<h:outputText class="form-control" value="#{cons.nom}" />
-							<br />
 
 
+			<h:form id="form">
 
-							<h:outputLabel>Prenom</h:outputLabel>
-							<h:outputText class="form-control" value="#{cons.prenom}" />
-							<br />
-
-
-							<h:outputLabel>Login</h:outputLabel>
-							<h:outputText class="form-control" value="#{cons.login}" />
-							<br />
+				<p:growl id="msgs" showDetail="true" />
 
 
-							<h:outputLabel>Mot de passe</h:outputLabel>
-							<h:outputText class="form-control" value="#{cons.motDePasse}" />
-							<br />
+				<p:tabView>
+					<p:tab title="Informations personnelles">
+						<h:panelGrid columns="1" cellpadding="10">
+							<img
+								src="https://img.lght.pics/4689b198268fbf2dadec7141758c9c15.png" />
 
+							<h:outputText value="nom : #{cons.nom}" />
+							<h:outputText value="prénom : #{cons.prenom}" />
 
-							<h:outputLabel>Adresse</h:outputLabel>
-							<h:outputText class="form-control" value="#{cons.adresse}" />
-							<br />
-
-							<h:outputLabel>Ville</h:outputLabel>
-							<h:outputText class="form-control" value="#{cons.ville}" />
-							<br />
-
-							<h:outputLabel>Code Postal</h:outputLabel>
-							<h:outputText class="form-control" value="#{cons.codePostal}" />
-							<br />
-
-							<h:outputLabel>Telephone</h:outputLabel>
-							<h:outputText class="form-control" value="#{cons.telephone}" />
-							<br />
-
-							<h:outputLabel>Email</h:outputLabel>
-							<h:outputText class="form-control" value="#{cons.email}" />
-							<br />
-
-							<div class="form-group">
-								<label class="sr-only">Retour</label>
-								<h:commandButton value="Retour" action="listeConseillers" />
-							</div>
-
-
-							<div class="form-group">
-								<label class="sr-only">Modifier</label>
-								<h:commandButton value="Modifier"
-									action="#{conseillerControllerImpl.loadConseillerForUpdate(cons.idCons)}" />
-							</div>
 						</h:panelGrid>
-					</h:form>
-				</center>
-			</p:fieldset>
+					</p:tab>
+
+					<p:tab title="Contact">
+						<h:panelGrid columns="1" cellpadding="10">
+							<img
+								src="https://img1.lght.pics/1b17d38e6d576c856ca3587b2dd4624d.png" />
+
+
+							<h:outputText value="téléphone : #{cons.telephone}" />
+							<h:outputText value="email : #{cons.email}" />
+
+						</h:panelGrid>
+					</p:tab>
+
+
+					<p:tab title="Adresse">
+						<h:panelGrid columns="1" cellpadding="10">
+							<img
+								src="https://img1.lght.pics/352d8fae92a63a64b3bc0481183c6fe7.png" />
+							<h:outputText value="adresse: #{cons.adresse}" />
+							<h:outputText value="ville : #{cons.ville}" />
+							<h:outputText value="code postal : #{cons.codePostal}" />
+						</h:panelGrid>
+					</p:tab>
+
+				</p:tabView>
+				<br />
+				<p:commandButton value="mettre à jour"
+					action="#{conseillerControllerImpl.loadConseillerForUpdate(cons.idCons)}" />
+
+
+
+
+			</h:form>
+
+
+
 		</ui:define>
 	</ui:composition>
 

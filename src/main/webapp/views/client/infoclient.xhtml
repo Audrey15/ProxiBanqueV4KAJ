@@ -22,8 +22,8 @@
 							<img
 								src="https://img.lght.pics/4689b198268fbf2dadec7141758c9c15.png" />
 
-							<h:outputText value="#{cl.nom}" />
-							<h:outputText value="#{cl.prenom}" />
+							<h:outputText value="nom : #{cl.nom}" />
+							<h:outputText value="prénom : #{cl.prenom}" />
 
 						</h:panelGrid>
 					</p:tab>
@@ -34,8 +34,8 @@
 								src="https://img1.lght.pics/1b17d38e6d576c856ca3587b2dd4624d.png" />
 
 
-							<h:outputText value="#{cl.telephone}" />
-							<h:outputText value="#{cl.email}" />
+							<h:outputText value="téléphone : #{cl.telephone}" />
+							<h:outputText value="email : #{cl.email}" />
 
 						</h:panelGrid>
 					</p:tab>
@@ -45,15 +45,15 @@
 						<h:panelGrid columns="1" cellpadding="10">
 							<img
 								src="https://img1.lght.pics/352d8fae92a63a64b3bc0481183c6fe7.png" />
-							<h:outputText value="#{cl.adresse}" />
-							<h:outputText value="#{cl.ville}" />
-							<h:outputText value="#{cl.codePostal}" />
+							<h:outputText value="adresse : #{cl.adresse}" />
+							<h:outputText value="ville : #{cl.ville}" />
+							<h:outputText value="code postal : #{cl.codePostal}" />
 						</h:panelGrid>
 					</p:tab>
 
 				</p:tabView>
 				<br />
-				<p:commandButton value="Mettre à jour"
+				<p:commandButton value="mettre à jour"
 					action="#{clientControllerImpl.loadClientForUpdate(cl.idClient)}" />
 
 
