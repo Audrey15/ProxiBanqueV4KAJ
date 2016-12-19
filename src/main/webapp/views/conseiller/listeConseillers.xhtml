@@ -34,6 +34,14 @@
 						<h:commandButton value="Info"
 							action="#{conseillerControllerImpl.loadConseillerForInfo(conseiller.idCons)}" />
 					</p:column>
+
+					<p:column headerText="Supprimer">
+						<h:commandButton value="Supprimer"
+							onclick="if (!confirm('Etes-vous sûr de vouloir supprimer ce conseiller?')) return false"
+							action="#{conseillerControllerImpl.deleteConseillerById(conseiller.idCons)}">
+						</h:commandButton>
+					</p:column>
+					
 				</p:dataTable>
 
 			</h:form>

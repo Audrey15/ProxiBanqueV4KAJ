@@ -7,38 +7,47 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:body>
-
 	<ui:composition template="/WEB-INF/tags/layout.xhtml">
 		<ui:define name="content">
 
+			<p:fieldset legend="Mettre à jour un conseiller"
+				style="margin-bottom:20px">
 
-			<p:fieldset legend="Ajouter un client" style="margin-bottom:20px">
 				<center>
 					<h:form>
 						<p:messages autoUpdate="true" />
-						<div>* champs requis</div>
-						<br />
+
 
 						<h:panelGrid id="grid" columns="4" cellpadding="5">
 
 							<h:outputLabel for="nom" value="nom *" />
 							<div>&nbsp;</div>
-							<p:inputText id="nom" value="#{client.nom}" required="true"
+							<p:inputText id="nom" value="#{cons.nom}" required="true"
 								label="Nom" />
-
 							<p:message for="nom" />
 
 
 							<h:outputLabel for="prenom" value="prénom *" />
 							<div>&nbsp;</div>
-							<p:inputText id="prenom" value="#{client.prenom}" required="true"
+							<p:inputText id="prenom" value="#{cons.prenom}" required="true"
 								label="Prenom" />
 							<p:message for="prenom" />
 
+							<h:outputLabel for="login" value="login *" />
+							<div>&nbsp;</div>
+							<p:inputText id="login" value="#{cons.login}" required="true"
+								label="login" />
+							<p:message for="login" />
+
+							<h:outputLabel for="motdepasse" value="mot de passe *" />
+							<div>&nbsp;</div>
+							<p:inputText id="motdepasse" value="#{cons.motDePasse}" required="true"
+								label="motdepasse" />
+							<p:message for="motdepasse" />
 
 							<h:outputLabel for="email" value="email *" />
 							<div>&nbsp;</div>
-							<p:inputText id="email" value="#{client.email}" required="true"
+							<p:inputText id="email" value="#{cons.email}" required="true"
 								label="Email" validatorMessage="email non valide">
 								<f:validateRegex
 									pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
@@ -47,7 +56,7 @@
 
 							<h:outputLabel for="telephone" value="telephone *" />
 							<div>&nbsp;</div>
-							<p:inputText id="telephone" value="#{client.telephone}"
+							<p:inputText id="telephone" value="#{cons.telephone}"
 								required="true" label="Telephone"
 								validatorMessage="telephone non valide">
 								<f:validateRegex pattern="^[0-9]{10}$" />
@@ -57,19 +66,19 @@
 
 							<h:outputLabel for="adresse" value="adresse *" />
 							<div>&nbsp;</div>
-							<p:inputText id="adresse" value="#{client.adresse}"
-								required="true" label="Adresse" />
+							<p:inputText id="adresse" value="#{cons.adresse}" required="true"
+								label="Adresse" />
 							<p:message for="adresse" />
 
 							<h:outputLabel for="ville" value="ville *" />
 							<div>&nbsp;</div>
-							<p:inputText id="ville" value="#{client.ville}" required="true"
+							<p:inputText id="ville" value="#{cons.ville}" required="true"
 								label="Ville" validatorMessage="ville non valide" />
 							<p:message for="ville" />
 
 							<h:outputLabel for="codePostal" value="code postal *" />
 							<div>&nbsp;</div>
-							<p:inputText id="codePostal" value="#{client.codePostal}"
+							<p:inputText id="codePostal" value="#{cons.codePostal}"
 								required="true" label="Code postal"
 								validatorMessage="code postal non valide">
 								<f:validateRegex pattern="^[0-9]{5}$" />
@@ -80,8 +89,9 @@
 
 						<br />
 
-						<p:commandButton value="ajouter" action="#{clientControllerImpl.createClient(client)}" icon="ui-icon-check"
-							validateClient="true" />
+						<p:commandButton value="mettre à jour"
+							action="#{conseillerControllerImpl.updateConseiller(cons)}"
+							icon="ui-icon-check" validateClient="true" />
 					</h:form>
 				</center>
 			</p:fieldset>
@@ -91,4 +101,3 @@
 
 </h:body>
 </html>
-

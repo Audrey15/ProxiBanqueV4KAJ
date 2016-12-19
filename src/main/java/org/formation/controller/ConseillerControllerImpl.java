@@ -77,4 +77,9 @@ public class ConseillerControllerImpl implements IConseillerController {
 		loadConseiller(idCons);
 		return "infoconseiller";
 	}
+	
+	public String loadConseillerForUpdate(Long idCons) throws Exception {
+		loadConseiller(idCons);
+		return "modifierconseiller";
+	}
 }
