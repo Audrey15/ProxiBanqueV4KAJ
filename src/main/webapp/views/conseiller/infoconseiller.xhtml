@@ -17,7 +17,12 @@
 
 						<h:panelGrid id="grid" columns="3" cellpadding="5">
 
+<<<<<<< HEAD
 							<h:outputLabel>nom</h:outputLabel>
+=======
+
+							<h:outputLabel>Nom</h:outputLabel>
+>>>>>>> origin/master
 							<h:outputText class="form-control" value="#{cons.nom}" />
 							<br />
 
@@ -61,6 +66,13 @@
 							<div class="form-group">
 								<label class="sr-only">Retour</label>
 								<h:commandButton value="Retour" action="listeConseillers" />
+							</div>
+
+
+							<div class="form-group">
+								<label class="sr-only">Modifier</label>
+								<h:commandButton value="Modifier"
+									action="#{conseillerControllerImpl.loadConseillerForUpdate(cons.idCons)}" />
 							</div>
 						</h:panelGrid>
 					</h:form>

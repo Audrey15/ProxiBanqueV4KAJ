@@ -1,5 +1,6 @@
 package org.formation.model;
 
+import javax.faces.bean.ManagedBean;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,10 +9,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import org.springframework.stereotype.Component;
+import org.springframework.web.context.annotation.ApplicationScope;
 
 @Entity
-@Component
+@ApplicationScope
+@ManagedBean
 public class CompteBancaire {
 	
 	@Id

@@ -65,4 +65,17 @@ public class ServiceCompte implements IServiceCompte {
 		return listeComptesByClient;
 	}
 
+	@Override
+	public void virement(CompteBancaire compte1, CompteBancaire compte2, double montant) throws Exception {
+		double s1 = compte1.getSolde();
+		double s2 = compte2.getSolde();
+		s1 = s1 - montant;
+		s2 = s2 + montant;
+		compte1.setSolde(s1);
+		compte2.setSolde(s2);
+		daoCompte.update(compte1);
+		daoCompte.update(compte2);
+		
+	}
+
 }
