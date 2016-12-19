@@ -10,12 +10,13 @@
 	<ui:composition template="/WEB-INF/tags/layout.xhtml">
 		<ui:define name="content">
 
-			<p:fieldset legend="Mettre à jour un client" style="margin-bottom:20px">
+			<p:fieldset legend="Mettre à jour un client"
+				style="margin-bottom:20px">
 
-<center>
+				<center>
 					<h:form>
 						<p:messages autoUpdate="true" />
-				
+
 
 						<h:panelGrid id="grid" columns="4" cellpadding="5">
 
@@ -55,8 +56,8 @@
 
 							<h:outputLabel for="adresse" value="adresse *" />
 							<div>&nbsp;</div>
-							<p:inputText id="adresse" value="#{cl.adresse}"
-								required="true" label="Adresse" />
+							<p:inputText id="adresse" value="#{cl.adresse}" required="true"
+								label="Adresse" />
 							<p:message for="adresse" />
 
 							<h:outputLabel for="ville" value="ville *" />
@@ -77,12 +78,18 @@
 						</h:panelGrid>
 
 						<br />
+						<h:panelGrid id="grid" columns="2" cellpadding="5">
 
-						<p:commandButton value="mettre à jour" action="#{clientControllerImpl.updateClient(cl)}" icon="ui-icon-check"
-							validateClient="true" />
+							<p:commandButton value="mettre à jour"
+								action="#{clientControllerImpl.updateClient(cl)}"
+								icon="ui-icon-check" validateClient="true" />
+
+							<p:commandButton value="retour" icon="ui-icon-close"
+								type="button" onclick="history.go(-1)" />
+						</h:panelGrid>
 					</h:form>
 				</center>
-</p:fieldset>
+			</p:fieldset>
 
 		</ui:define>
 	</ui:composition>

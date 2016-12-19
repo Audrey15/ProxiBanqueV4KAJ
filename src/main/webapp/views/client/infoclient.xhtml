@@ -53,9 +53,12 @@
 
 				</p:tabView>
 				<br />
-				<p:commandButton value="mettre à jour"
-					action="#{clientControllerImpl.loadClientForUpdate(cl.idClient)}" />
-
+				<h:panelGrid id="grid" columns="2" cellpadding="5">
+					<p:commandButton value="mettre à jour"
+						action="#{clientControllerImpl.loadClientForUpdate(cl.idClient)}" />
+					<p:commandButton value="retour" icon="ui-icon-close" type="button"
+						onclick="history.go(-1)" />
+				</h:panelGrid>
 
 
 
