@@ -10,41 +10,41 @@
 
 	<ui:composition template="/WEB-INF/tags/layout.xhtml">
 		<ui:define name="content">
+			<p:fieldset legend="Liste des comptes" style="margin-bottom:20px">
+				<h:form id="form">
 
-			<h:form id="form">
-			
-				<p:dataTable var="compte"
-					value="#{compteControllerImpl.findAllComptes()}">
+					<p:dataTable var="compte"
+						value="#{compteControllerImpl.findAllComptes()}">
 
-					<p:column headerText="Numéro">
-						<h:outputText value="#{compte.numCompte}" />
-					</p:column>
+						<p:column headerText="Numéro">
+							<h:outputText value="#{compte.numCompte}" />
+						</p:column>
 
-					<p:column headerText="Solde">
-						<h:outputText value="#{compte.solde}" />
-					</p:column>
+						<p:column headerText="Solde">
+							<h:outputText value="#{compte.solde}" />
+						</p:column>
 
-					<p:column headerText="Type">
-						<h:outputText value="#{compte.typeCompte}" />
-					</p:column>
+						<p:column headerText="Type">
+							<h:outputText value="#{compte.typeCompte}" />
+						</p:column>
 
-					<p:column headerText="Client">
-						<h:outputText value="#{compte.client.nom}" />
-					</p:column>
+						<p:column headerText="Client">
+							<h:outputText value="#{compte.client.nom}" />
+						</p:column>
 
-					<p:column>
-						<h:commandButton value="Virement" />
-					</p:column>
+						<p:column>
+							<h:commandButton value="Virement" />
+						</p:column>
 
-					<p:column>
-						<h:commandButton value="Supprimer"
-							action="#{compteControllerImpl.deleteCompteByNum(compte.numCompte)}"
-							onclick="if (!confirm('Etes-vous sûr de vouloir supprimer ce compte?')) return false" />
-					</p:column>
+						<p:column>
+							<h:commandButton value="Supprimer"
+								action="#{compteControllerImpl.deleteCompteByNum(compte.numCompte)}"
+								onclick="if (!confirm('Etes-vous sûr de vouloir supprimer ce compte?')) return false" />
+						</p:column>
 
-				</p:dataTable>
-			</h:form>
-
+					</p:dataTable>
+				</h:form>
+			</p:fieldset>
 		</ui:define>
 	</ui:composition>
 

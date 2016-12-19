@@ -10,43 +10,44 @@
 
 	<ui:composition template="/WEB-INF/tags/layout.xhtml">
 		<ui:define name="content">
-			<h:form id="form">
-				<p:dataTable var="client"
-					value="#{clientControllerImpl.findAllClients()}">
+			<p:fieldset legend="Liste des clients" style="margin-bottom:20px">
+				<h:form id="form">
+					<p:dataTable var="client"
+						value="#{clientControllerImpl.findAllClients()}">
 
-					<p:column headerText="Nom">
-						<h:outputText value="#{client.nom}" />
-					</p:column>
+						<p:column headerText="Nom">
+							<h:outputText value="#{client.nom}" />
+						</p:column>
 
-					<p:column headerText="Prenom">
-						<h:outputText value="#{client.prenom}" />
-					</p:column>
+						<p:column headerText="Prenom">
+							<h:outputText value="#{client.prenom}" />
+						</p:column>
 
-					<p:column headerText="Info">
-						<h:commandButton value="Info"
-							action="#{clientControllerImpl.loadClientForInfo(client.idClient)}" />
-					</p:column>
+						<p:column>
+							<h:commandButton value="Info"
+								action="#{clientControllerImpl.loadClientForInfo(client.idClient)}" />
+						</p:column>
 
-					<p:column headerText="Liste des comptes">
-						<h:commandButton value="Comptes"
-							action="#{clientControllerImpl.loadClientForComptes(client.idClient)}" />
-					</p:column>
+						<p:column>
+							<h:commandButton value="Comptes du client"
+								action="#{clientControllerImpl.loadClientForComptes(client.idClient)}" />
+						</p:column>
 
-					<p:column headerText="Supprimer">
-						<h:commandButton value="Supprimer"
-							action="#{clientControllerImpl.deleteClientById(client.idClient)}"
-							onclick="if (!confirm('Etes-vous sûr de vouloir supprimer ce client?')) return false" />
-					</p:column>
+						<p:column>
+							<h:commandButton value="Supprimer client"
+								action="#{clientControllerImpl.deleteClientById(client.idClient)}"
+								onclick="if (!confirm('Etes-vous sûr de vouloir supprimer ce client?')) return false" />
+						</p:column>
 
-					<p:column headerText="ajouter compte">
-						<h:commandButton value="Comptes"
-							action="#{clientControllerImpl.loadClientForAjoutCompte(client.idClient)}" />
-					</p:column>
+						<p:column>
+							<h:commandButton value="Comptes"
+								action="#{clientControllerImpl.loadClientForAjoutCompte(client.idClient)}" />
+						</p:column>
 
-				</p:dataTable>
+					</p:dataTable>
 
-			</h:form>
-
+				</h:form>
+			</p:fieldset>
 		</ui:define>
 	</ui:composition>
 

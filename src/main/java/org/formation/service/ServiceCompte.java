@@ -51,6 +51,7 @@ public class ServiceCompte implements IServiceCompte {
 		daoClient.update(client);
 	}
 
+	
 	@Override
 	public List<CompteBancaire> findAllComptesByClient(Client client) throws Exception {
 		List<CompteBancaire> listeComptes = daoCompte.findAll();

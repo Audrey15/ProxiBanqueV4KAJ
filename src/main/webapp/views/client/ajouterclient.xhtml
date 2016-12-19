@@ -38,7 +38,8 @@
 							<h:outputLabel for="email" value="email *" />
 							<div>&nbsp;</div>
 							<p:inputText id="email" value="#{client.email}" required="true"
-								label="Email" validatorMessage="email non valide">
+								label="Email"
+								validatorMessage="email non valide, format xx@xx.xx">
 								<f:validateRegex
 									pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
 							</p:inputText>
@@ -79,8 +80,10 @@
 
 						<br />
 
-						<p:commandButton value="ajouter" action="#{clientControllerImpl.createClient(client)}" icon="ui-icon-check"
-							validateClient="true" />
+							<p:commandButton value="ajouter"
+								action="#{clientControllerImpl.createClient(client)}"
+								icon="ui-icon-check" validateClient="true" />
+
 					</h:form>
 				</center>
 			</p:fieldset>
