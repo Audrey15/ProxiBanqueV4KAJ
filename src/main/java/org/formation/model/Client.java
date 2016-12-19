@@ -43,7 +43,7 @@ public class Client extends Personne {
 		super(nom, prenom, email, telephone, adresse, ville, codePostal);
 	}
 
-	public Long getId() {
+	public Long getIdClient() {
 		return idClient;
 	}
 
