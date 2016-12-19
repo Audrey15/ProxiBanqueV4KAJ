@@ -7,61 +7,57 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:body>
-
 	<ui:composition template="/WEB-INF/tags/layout.xhtml">
 		<ui:define name="content">
-			<h:form id="form" class="form-inline">
-				<div class="form-group">
-					<label class="sr-only">Nom</label>
-					<h:outputText class="form-control" value="#{cl.nom}" />
-					<br/>
-				</div>
-				
-				<div class="form-group">
-					<label class="sr-only">Prenom</label>
-					<h:outputText class="form-control" value="#{cl.prenom}" />
-					<br/>
-				</div>		
-				
-				<div class="form-group">
-					<label class="sr-only">Adresse</label>
-					<h:outputText class="form-control" value="#{cl.adresse}" />
-					<br/>
-				</div>		
-				
-				<div class="form-group">
-					<label class="sr-only">Ville</label>
-					<h:outputText class="form-control" value="#{cl.ville}" />
-					<br/>
-				</div>
-				
-				<div class="form-group">
-					<label class="sr-only">Code Postal</label>
-					<h:outputText class="form-control" value="#{cl.codePostal}" />
-					<br/>
-				</div>
-				
-				<div class="form-group">
-					<label class="sr-only">Telephone</label>
-					<h:outputText class="form-control" value="#{cl.telephone}" />
-					<br/>
-				</div>
-				
-				<div class="form-group">
-					<label class="sr-only">Email</label>
-					<h:outputText class="form-control" value="#{cl.email}" />
-					<br/>
-				</div>
 
-				<div class="form-group">
-					<label class="sr-only">Retour</label>
-					<h:commandButton value="Retour" action="listeclients" />
-				</div>
-				
-				<div class="form-group">
-					<label class="sr-only">Modifier</label>
-					<h:commandButton value="Modifier" action="#{clientControllerImpl.loadClientForUpdate(cl.idClient)}" />
-				</div>
+
+			<h:form id="form">
+
+				<p:growl id="msgs" showDetail="true" />
+
+
+				<p:tabView>
+					<p:tab title="Informations personnelles">
+						<h:panelGrid columns="1" cellpadding="10">
+							<img
+								src="https://img.lght.pics/4689b198268fbf2dadec7141758c9c15.png" />
+
+							<h:outputText value="#{cl.nom}" />
+							<h:outputText value="#{cl.prenom}" />
+
+						</h:panelGrid>
+					</p:tab>
+
+					<p:tab title="Contact">
+						<h:panelGrid columns="1" cellpadding="10">
+							<img
+								src="https://img1.lght.pics/1b17d38e6d576c856ca3587b2dd4624d.png" />
+
+
+							<h:outputText value="#{cl.telephone}" />
+							<h:outputText value="#{cl.email}" />
+
+						</h:panelGrid>
+					</p:tab>
+
+
+					<p:tab title="Adresse">
+						<h:panelGrid columns="1" cellpadding="10">
+							<img
+								src="https://img1.lght.pics/352d8fae92a63a64b3bc0481183c6fe7.png" />
+							<h:outputText value="#{cl.adresse}" />
+							<h:outputText value="#{cl.ville}" />
+							<h:outputText value="#{cl.codePostal}" />
+						</h:panelGrid>
+					</p:tab>
+
+				</p:tabView>
+				<br />
+				<p:commandButton value="Mettre à jour"
+					action="#{clientControllerImpl.loadClientForUpdate(cl.idClient)}" />
+
+
+
 
 			</h:form>
 

@@ -25,13 +25,9 @@ public class testMain {
 		IServiceCompte serviceCompte = context.getBean(ServiceCompte.class);
 		IServiceConseiller serviceConseiller = context.getBean(ServiceConseiller.class);
 
-		// Client c = new Client("c1", "c1", "c1", "c1", "c1", "c1", "c1");
-		// Client c2 = new Client("c2", "c2", "c2", "c2", "c2", "c2", "c2");
-		// System.out.println(serviceClient);
-		// System.out.println(c);
-
-		// serviceClient.createClient(c);
-		// serviceClient.createClient(c2);
+		Client c = new Client("c1", "c1", "c1", "c1", "c1", "c1", "c1");
+		Client c2 = new Client("c2", "c2", "c2", "c2", "c2", "c2", "c2");
+		
 
 		Conseiller cons1 = new Conseiller("cons1", "cons1", "cons1", "cons1", "cons1", "cons1", "cons1", "cons1",
 				"cons1");
