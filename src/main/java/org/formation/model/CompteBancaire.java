@@ -24,7 +24,7 @@ public class CompteBancaire {
 	
 	private TypeCompte typeCompte;
 
-	@ManyToOne(cascade = { CascadeType.PERSIST })
+	@ManyToOne
 	@JoinColumn(name = "client_id")
 	private Client client;
 	

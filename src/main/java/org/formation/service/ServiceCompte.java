@@ -46,13 +46,13 @@ public class ServiceCompte implements IServiceCompte {
 	}
 
 	@Override
-	public void createCompteForClient(CompteBancaire compte, Client client)throws Exception {
-		daoCompte.create(compte);
-		client.addCompte(compte);
-		//daoCompte.update(compte);
+	public void createCompteForClient(CompteBancaire compte, Client client) throws Exception {
+		client.getListeComptes().add(compte);
+		compte.setClient(client);
 		daoClient.update(client);
 	}
 
+	
 	@Override
 	public List<CompteBancaire> findAllComptesByClient(Client client) throws Exception {
 		List<CompteBancaire> listeComptes = daoCompte.findAll();

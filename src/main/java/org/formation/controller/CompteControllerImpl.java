@@ -40,19 +40,19 @@ public class CompteControllerImpl implements ICompteController{
 	@Override
 	public String createCompteForClient(CompteBancaire compte, Client client) throws Exception {
 		serviceCompte.createCompteForClient(compte, client);
-		return "listecompte";
+		return "listecomptes";
 	}
 
 	@Override
 	public String updateCompte(CompteBancaire compte) throws Exception {
 		serviceCompte.updateCompte(compte);
-		return "listecompte";
+		return "listecomptes";
 	}
 
 	@Override
 	public String deleteCompteByNum(Long numCompte) throws Exception {
 		serviceCompte.deleteCompteByNum(numCompte);
-		return "listecompte";
+		return "listecomptes";
 	}
 
 	@Override

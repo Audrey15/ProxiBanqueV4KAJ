@@ -28,11 +28,11 @@ public class Client extends Personne {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long idClient;
 
-	@ManyToOne(cascade = { CascadeType.PERSIST })
+	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
 	@JoinColumn(name = "conseiller_id")
 	private Conseiller conseiller;
 
-	@OneToMany(mappedBy = "client", cascade = { CascadeType.PERSIST })
+	@OneToMany(mappedBy = "client", cascade = { CascadeType.ALL } )
 	private Set<CompteBancaire> listeComptes = new HashSet<>();
 
 	public Client() {

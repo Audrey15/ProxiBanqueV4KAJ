@@ -50,8 +50,8 @@ public class EntityDaoImpl<E> implements IEntityDao<E> {
 
 	@Transactional(readOnly = true)
 	@Override
-	public E findEById(Object id) {
-		return (E) getEntityManager().find(entityClass, id);
+	public E findEById(Object id) throws Exception {
+		return (E) getEntityManager().find(getEntityClass(), id);
 	}
 
 	@Transactional(readOnly = true)
