@@ -16,7 +16,7 @@
 					selection="#{clientControllerImpl.client}" id="clientTable"
 					lazy="true">
 					<p:ajax event="rowSelect"
-						listener="#{clientControllerImpl.onRowSelect}"
+						listener="#{clientControllerImpl.onRowSelect()}"
 						update=":form:clientDetail" oncomplete="PF('clientDialog').show()" />
 					<p:column headerText="Nom">
 						<h:outputText value="#{client.nom}" />
