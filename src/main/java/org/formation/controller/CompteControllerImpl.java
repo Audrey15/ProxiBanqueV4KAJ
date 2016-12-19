@@ -1,17 +1,24 @@
 package org.formation.controller;
 
 import java.util.ArrayList;
+
 import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.faces.bean.ManagedBean;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 
 import org.formation.model.Client;
 import org.formation.model.CompteBancaire;
 import org.formation.service.IServiceCompte;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.context.annotation.ApplicationScope;
 
+@Controller
+@ManagedBean
+@ApplicationScope
 public class CompteControllerImpl implements ICompteController{
 
 	@Resource
@@ -21,6 +28,16 @@ public class CompteControllerImpl implements ICompteController{
 	private List<CompteBancaire> listeComptesByClient = new ArrayList<>();
 
 	private CompteBancaire compte;
+	
+	
+
+	public CompteBancaire getCompte() {
+		return compte;
+	}
+
+	public void setCompte(CompteBancaire compte) {
+		this.compte = compte;
+	}
 
 	@Override
 	public String createCompteForClient(CompteBancaire compte, Client client) throws Exception {
@@ -31,13 +48,13 @@ public class CompteControllerImpl implements ICompteController{
 	@Override
 	public String updateCompte(CompteBancaire compte) throws Exception {
 		serviceCompte.updateCompte(compte);
-		return "listecomptes";
+		return "listecompte";
 	}
 
 	@Override
 	public String deleteCompteByNum(Long numCompte) throws Exception {
 		serviceCompte.deleteCompteByNum(numCompte);
-		return "listecomptes";
+		return "listecompte";
 	}
 
 	@Override

@@ -13,7 +13,8 @@
 
 			<h:form id="form">
 				<p:dataTable var="compte"
-					value="#{compteControllerImpl.findAllComptes()}">
+					value="#{compteControllerImpl.findAllComptes()}"
+					filteredValue="#{compteControllerImpl.findAllComptesByClient(cl)}">
 
 					<p:column headerText="Numéro">
 						<h:outputText value="#{compte.numCompte}" />
