@@ -49,7 +49,7 @@ public class ServiceCompte implements IServiceCompte {
 	public void createCompteForClient(CompteBancaire compte, Client client)throws Exception {
 		daoCompte.create(compte);
 		client.addCompte(compte);
-		daoCompte.update(compte);
+		//daoCompte.update(compte);
 		daoClient.update(client);
 	}
 

@@ -30,7 +30,6 @@ public class CompteControllerImpl implements ICompteController{
 	private CompteBancaire compte;
 	
 	
-
 	public CompteBancaire getCompte() {
 		return compte;
 	}
@@ -42,7 +41,7 @@ public class CompteControllerImpl implements ICompteController{
 	@Override
 	public String createCompteForClient(CompteBancaire compte, Client client) throws Exception {
 		serviceCompte.createCompteForClient(compte, client);
-		return "listeclients";
+		return "listecompte";
 	}
 
 	@Override

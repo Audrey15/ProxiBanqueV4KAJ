@@ -38,6 +38,11 @@
 							onclick="if (!confirm('Etes-vous sûr de vouloir supprimer ce client?')) return false" />
 					</p:column>
 
+					<p:column headerText="ajouter compte">
+						<h:commandButton value="Comptes"
+							action="#{clientControllerImpl.loadClientForAjoutCompte(client.idClient)}" />
+					</p:column>
+
 				</p:dataTable>
 
 			</h:form>

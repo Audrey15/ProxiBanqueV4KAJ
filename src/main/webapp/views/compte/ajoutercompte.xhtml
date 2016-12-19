@@ -10,23 +10,49 @@
 
 	<ui:composition template="/WEB-INF/tags/layout.xhtml">
 		<ui:define name="content">
-			<p:fieldset legend="Ajouter un client" style="margin-bottom:20px">
+
+
+			<p:fieldset legend="Créer un compte" style="margin-bottom:20px">
 				<center>
 					<h:form>
-	<h:panelGrid id="grid" columns="2" cellpadding="5">
-	
-	
-	
-	
-	</h:panelGrid>
+						<p:messages autoUpdate="true" />
+						<div>* champs requis</div>
+						<br />
+
+						<h:panelGrid id="grid" columns="3" cellpadding="5">
+
+
+							<h:outputLabel for="typeCompte" value="type du compte *" />
+							<div>&nbsp;</div>
+							<p:selectOneMenu id="typeCompte"
+								value="#{compteBancaire.typeCompte}" style="width:150px">
+								<f:selectItem itemLabel="compte courant" itemValue="COURANT" />
+								<f:selectItem itemLabel="compte epargne" itemValue="EPARGNE" />
+							</p:selectOneMenu>
+
+
+							<h:outputLabel for="solde" value="solde *" />
+							<div>&nbsp;</div>
+							<p:inputText id="solde" value="#{compteBancaire.solde}"
+								required="true" label="solde" />
+							<p:message for="solde" />
 
 
 
+						</h:panelGrid>
+
+						<br />
+
+						<p:commandButton value="Créer"
+							action="#{compteControllerImpl.createCompteForClient(compteBancaire, cl)}"
+							icon="ui-icon-check" validateClient="true" />
 					</h:form>
 				</center>
 			</p:fieldset>
 
 		</ui:define>
 	</ui:composition>
+
 </h:body>
 </html>
+

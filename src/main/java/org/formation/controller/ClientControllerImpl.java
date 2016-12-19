@@ -97,7 +97,7 @@ public class ClientControllerImpl implements IClientController, Serializable {
 	@Override
 	public String loadClientForAjoutCompte(Long idCli) throws Exception{
 		loadClient(idCli);
-		return "ajoutercompte";
+		return "/views/compte/ajoutercompte.xhtml";
 	}
 	
 
