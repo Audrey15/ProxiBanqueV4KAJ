@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+
+	<ui:composition template="/WEB-INF/tags/layout.xhtml">
+		<ui:define name="content">
+			<h:form id="form">
+				<p:dataTable var="conseiller"
+					value="#{conseillerControllerImpl.findAllConseillers()}">
+
+					<p:column headerText="Nom">
+						<h:outputText value="#{conseiller.nom}" />
+					</p:column>
+
+					<p:column headerText="Prenom">
+						<h:outputText value="#{conseiller.prenom}" />
+					</p:column>
+
+					<p:column headerText="Login">
+						<h:outputText value="#{conseiller.login}" />
+					</p:column>
+
+					<p:column headerText="Mot de Passe">
+						<h:outputText value="#{conseiller.motDePasse}" />
+					</p:column>
+
+					<p:column headerText="Info">
+						<h:commandButton value="Info"
+							action="#{conseillerControllerImpl.loadConseillerForInfo(conseiller.idCons)}" />
+					</p:column>
+				</p:dataTable>
+
+			</h:form>
+
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+</html>

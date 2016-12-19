@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+
+	<ui:composition template="/WEB-INF/tags/layout.xhtml">
+		<ui:define name="content">
+			<p:fieldset legend="Informations Conseiller"
+				style="margin-bottom:20px">
+				<center>
+					<h:form id="form" class="form-inline">
+
+						<h:panelGrid id="grid" columns="3" cellpadding="5">
+
+							<h:outputLabel>Nom</h:outputLabel>
+							<h:outputText class="form-control" value="#{cons.nom}" />
+							<br />
+
+
+
+							<h:outputLabel>Prenom</h:outputLabel>
+							<h:outputText class="form-control" value="#{cons.prenom}" />
+							<br />
+
+
+							<h:outputLabel>Login</h:outputLabel>
+							<h:outputText class="form-control" value="#{cons.login}" />
+							<br />
+
+
+							<h:outputLabel>Mot de passe</h:outputLabel>
+							<h:outputText class="form-control" value="#{cons.motDePasse}" />
+							<br />
+
+
+							<h:outputLabel>Adresse</h:outputLabel>
+							<h:outputText class="form-control" value="#{cons.adresse}" />
+							<br />
+
+							<h:outputLabel>Ville</h:outputLabel>
+							<h:outputText class="form-control" value="#{cons.ville}" />
+							<br />
+
+							<h:outputLabel>Code Postal</h:outputLabel>
+							<h:outputText class="form-control" value="#{cons.codePostal}" />
+							<br />
+
+							<h:outputLabel>Telephone</h:outputLabel>
+							<h:outputText class="form-control" value="#{cons.telephone}" />
+							<br />
+
+							<h:outputLabel>Email</h:outputLabel>
+							<h:outputText class="form-control" value="#{cons.email}" />
+							<br />
+
+							<div class="form-group">
+								<label class="sr-only">Retour</label>
+								<h:commandButton value="Retour" action="listeConseillers" />
+							</div>
+						</h:panelGrid>
+					</h:form>
+				</center>
+			</p:fieldset>
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+</html>

@@ -14,5 +14,7 @@ public interface IConseillerController {
 	
 	public List<Conseiller> findAllConseillers() throws Exception;
 	
-	public String loadConseillerForClients(Long idCons) throws Exception;
+	public void loadConseiller(Long idCons) throws Exception;
+	
+	public String loadConseillerForDirecteur(Long idCons) throws Exception;
 }
