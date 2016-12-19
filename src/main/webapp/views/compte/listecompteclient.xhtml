@@ -12,11 +12,8 @@
 		<ui:define name="content">
 			<p:fieldset legend="Liste des comptes" style="margin-bottom:20px">
 				<h:form id="form">
-
-					
 						<p:dataTable id="compteTable" var="compte"
 							value="#{cl.listeComptes}">
-
 
 
 							<p:column headerText="Numéro">
@@ -45,19 +42,7 @@
 									onclick="if (!confirm('Etes-vous sûr de vouloir supprimer ce compte?')) return false" />
 							</p:column>
 
-						</p:dataTable>
-
-						<br />
-
-
-
-
-
-					<p:column>
-						<h:commandButton value="Supprimer"
-							action="#{compteControllerImpl.deleteCompteByNum(compte.numCompte)}"
-							onclick="if (!confirm('Etes-vous sûr de vouloir supprimer ce compte?')) return false" />
-					</p:column>
+						
 
 					</p:dataTable>
 				</h:form>
