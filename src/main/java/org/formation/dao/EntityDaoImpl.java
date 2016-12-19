@@ -7,6 +7,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -58,7 +59,7 @@ public class EntityDaoImpl<E> implements IEntityDao<E> {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<E> findAll() throws Exception {
-		return getEntityManager().createQuery("Select t from " + getEntityClass().getSimpleName() + " t")
+		return getEntityManager().createQuery("Select t from " + getEntityClass().getSimpleName() + " t" )
 				.getResultList();
 	}
 
