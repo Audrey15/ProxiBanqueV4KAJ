@@ -79,7 +79,7 @@ public class ClientControllerImpl implements IClientController, Serializable {
 	@Override
 	public String loadClientForUpdate(Long idCli) throws Exception{
 		loadClient(idCli);
-		return "modifierClient";
+		return "modifierclient";
 	}
 
 	@Override
