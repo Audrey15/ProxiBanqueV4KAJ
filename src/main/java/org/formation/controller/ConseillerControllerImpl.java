@@ -9,8 +9,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 
-import org.formation.model.Client;
 import org.formation.model.Conseiller;
+import org.formation.model.Employe;
 import org.formation.service.IServiceConseiller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.context.annotation.ApplicationScope;
@@ -35,22 +35,37 @@ public class ConseillerControllerImpl implements IConseillerController {
 		this.conseiller = conseiller;
 	}
 
+	public String login(Conseiller conseiller) throws Exception {
+		List<Conseiller> conseillers = serviceConseiller.findAllConseiller();
+		for (Conseiller cons : conseillers) {
+			if (conseiller.getLogin().equals(cons.getLogin())
+					&& conseiller.getMotDePasse().equals(cons.getMotDePasse())) {
+				loadConseiller(conseiller.getIdCons());
+				return "/webapp/views/client/listeclients.xhtml";
+			}
+		}
+		if (conseiller.getLogin().equals("abc") && conseiller.getMotDePasse().equals("123")) {
+			return "/webapp/views/conseiller/listeconseillers.xhtml";
+		}
+		return "";
+	}
+
 	@Override
 	public String createConseiller(Conseiller conseiller) throws Exception {
 		serviceConseiller.createConseiller(conseiller);
-		return "listeConseillers";
+		return "/views/conseiller/listeconseillers";
 	}
 
 	@Override
 	public String updateConseiller(Conseiller conseiller) throws Exception {
 		serviceConseiller.updateConseiller(conseiller);
-		return "listeConseillers";
+		return "/views/conseiller/listeconseillers";
 	}
 
 	@Override
 	public String deleteConseillerById(Long idCons) throws Exception {
 		serviceConseiller.deleteConseillerById(idCons);
-		return "listeConseillers";
+		return "/views/conseiller/listeconseillers";
 	}
 
 	@Override
@@ -67,19 +82,13 @@ public class ConseillerControllerImpl implements IConseillerController {
 		sessionMap.put("cons", conseiller);
 	}
 
-	@Override
-	public String loadConseillerForDirecteur(Long idCons) throws Exception {
-		loadConseiller(idCons);
-		return "listeConseillers";
-	}
-
 	public String loadConseillerForInfo(Long idCons) throws Exception {
 		loadConseiller(idCons);
-		return "infoconseiller";
+		return "/views/conseiller/infoconseiller";
 	}
-	
+
 	public String loadConseillerForUpdate(Long idCons) throws Exception {
 		loadConseiller(idCons);
-		return "modifierconseiller";
+		return "/views/conseiller/modifierconseiller";
 	}
 }

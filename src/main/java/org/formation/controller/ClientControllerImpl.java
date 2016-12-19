@@ -42,19 +42,19 @@ public class ClientControllerImpl implements IClientController, Serializable {
 	@Override
 	public String createClient(Client client) throws Exception {
 		serviceClient.createClient(client);
-		return "listeclients";
+		return "/views/client/listeclients";
 	}
 
 	@Override
 	public String updateClient(Client client) throws Exception {
 		serviceClient.updateClient(client);
-		return "listeclients";
+		return "/views/client/listeclients";
 	}
 
 	@Override
 	public String deleteClientById(Long idCli) throws Exception {
 		serviceClient.deleteClientById(idCli);
-		return "listeclients";
+		return "/views/client/listeclients";
 	}
 
 	@Override
@@ -79,25 +79,25 @@ public class ClientControllerImpl implements IClientController, Serializable {
 	@Override
 	public String loadClientForUpdate(Long idCli) throws Exception {
 		loadClient(idCli);
-		return "modifierclient";
+		return "/views/client/modifierclient";
 	}
 
 	@Override
 	public String loadClientForInfo(Long idCli) throws Exception {
 		loadClient(idCli);
-		return "infoclient";
+		return "/views/client/infoclient";
 	}
 
 	@Override
 	public String loadClientForComptes(Long idCli) throws Exception {
 		loadClient(idCli);
-		return "/views/compte/listecompteclient.xhtml";
+		return "/views/compte/listecompteclient";
 	}
 
 	@Override
 	public String loadClientForAjoutCompte(Long idCli) throws Exception {
 		loadClient(idCli);
-		return "/views/compte/ajoutercompte.xhtml";
+		return "/views/compte/ajoutercompte";
 	}
 
 }

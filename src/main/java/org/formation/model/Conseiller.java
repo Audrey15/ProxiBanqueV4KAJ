@@ -28,11 +28,11 @@ public class Conseiller extends Employe {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long idCons;
 	
-	@ManyToOne(cascade = {CascadeType.PERSIST})
+	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	@JoinColumn(name="directeur_id")
 	private DirecteurAgence directeur;
 
-	@OneToMany(mappedBy="conseiller", cascade = {CascadeType.PERSIST})
+	@OneToMany(mappedBy="conseiller", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	private Set<Client> listeClients = new HashSet<>();
 	
 	public Conseiller() {

@@ -20,20 +20,19 @@
 
 						<br /> <br />
 
-						<form class="form-inline">
+						<h:form class="form-inline">
 							<div class="form-group">
 								<label class="sr-only">Login</label> <input type="text"
-									class="form-control" placeholder="identifiant" />
+									class="form-control" placeholder="identifiant" value="#{conseiller.login}" />
 							</div>
 							<div class="form-group">
 								<label class="sr-only" for="exampleInputPassword3">Password</label>
 								<input type="password" class="form-control"
-									id="exampleInputPassword3" placeholder="mot de passe" />
+									id="exampleInputPassword3" placeholder="mot de passe" value="#{conseiller.motDePasse}"/>
 							</div>
 
-							<button type="submit" class="btn btn-default">Se
-								connecter</button>
-						</form>
+							<h:commandButton value="Se connecter" action="#{conseillerControllerImpl.login(conseiller)}"/>
+						</h:form>
 					</center>
 				</div>
 			</div>
