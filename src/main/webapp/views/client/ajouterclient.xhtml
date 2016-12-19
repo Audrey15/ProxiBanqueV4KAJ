@@ -24,18 +24,15 @@
 							<h:outputLabel for="nom" value="nom *" />
 							<div>&nbsp;</div>
 							<p:inputText id="nom" value="#{client.nom}" required="true"
-								label="Nom" validatorMessage="nom non valide">
-								<f:validateRegex pattern="[a-zA-Z]" />
-							</p:inputText>
+								label="Nom" />
+
 							<p:message for="nom" />
 
 
 							<h:outputLabel for="prenom" value="prénom *" />
 							<div>&nbsp;</div>
 							<p:inputText id="prenom" value="#{client.prenom}" required="true"
-								label="Prenom" validatorMessage="prénom non valide">
-								<f:validateRegex pattern="[a-zA-Z]" />
-							</p:inputText>
+								label="Prenom" validatorMessage="prénom non valide" />
 							<p:message for="prenom" />
 
 
@@ -67,9 +64,7 @@
 							<h:outputLabel for="ville" value="ville *" />
 							<div>&nbsp;</div>
 							<p:inputText id="ville" value="#{client.ville}" required="true"
-								label="Ville" validatorMessage="adresse non valide">
-								<f:validateRegex pattern="[a-zA-Z]" />
-							</p:inputText>
+								label="Ville" validatorMessage="ville non valide" />
 							<p:message for="ville" />
 
 							<h:outputLabel for="codePostal" value="code postal *" />
