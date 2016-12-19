@@ -37,6 +37,23 @@ public class CompteControllerImpl implements ICompteController{
 		this.compte = compte;
 	}
 
+	
+	public List<CompteBancaire> getListeComptes() {
+		return listeComptes;
+	}
+
+	public void setListeComptes(List<CompteBancaire> listeComptes) {
+		this.listeComptes = listeComptes;
+	}
+
+	public List<CompteBancaire> getListeComptesByClient() {
+		return listeComptesByClient;
+	}
+
+	public void setListeComptesByClient(List<CompteBancaire> listeComptesByClient) {
+		this.listeComptesByClient = listeComptesByClient;
+	}
+
 	@Override
 	public String createCompteForClient(CompteBancaire compte, Client client) throws Exception {
 		serviceCompte.createCompteForClient(compte, client);
