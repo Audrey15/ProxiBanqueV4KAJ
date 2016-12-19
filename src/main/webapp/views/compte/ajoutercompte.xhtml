@@ -42,11 +42,14 @@
 						</h:panelGrid>
 
 						<br />
+						
+						
+							<p:commandButton value="Créer"
+								action="#{compteControllerImpl.createCompteForClient(compteBancaire, cl)}"
+								icon="ui-icon-check" validateClient="true" />
 
-						<p:commandButton value="Créer"
-							action="#{compteControllerImpl.createCompteForClient(compteBancaire, cl)}"
-							icon="ui-icon-check" validateClient="true" />
 							
+						
 					</h:form>
 				</center>
 			</p:fieldset>

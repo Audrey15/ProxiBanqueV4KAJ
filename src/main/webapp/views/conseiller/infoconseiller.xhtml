@@ -54,11 +54,14 @@
 
 				</p:tabView>
 				<br />
-				<p:commandButton value="mettre à jour"
-					action="#{conseillerControllerImpl.loadConseillerForUpdate(cons.idCons)}" />
+				<h:panelGrid id="grid" columns="2" cellpadding="5">
+					<p:commandButton value="mettre à jour"
+						action="#{conseillerControllerImpl.loadConseillerForUpdate(cons.idCons)}" />
 
+					<p:commandButton value="retour" icon="ui-icon-close" type="button"
+						onclick="history.go(-1)" />
 
-
+				</h:panelGrid>
 
 			</h:form>
 
