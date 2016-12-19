@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+
+	<ui:composition template="/WEB-INF/tags/layout.xhtml">
+		<ui:define name="content">
+			<h:form id="form" class="form-inline">
+				<div class="form-group">
+					<label class="sr-only">Nom</label>
+					<h:outputText class="form-control" value="#{cl.nom}" />
+					<br/>
+				</div>
+				
+				<div class="form-group">
+					<label class="sr-only">Prenom</label>
+					<h:outputText class="form-control" value="#{cl.prenom}" />
+					<br/>
+				</div>		
+				
+				<div class="form-group">
+					<label class="sr-only">Adresse</label>
+					<h:outputText class="form-control" value="#{cl.adresse}" />
+					<br/>
+				</div>		
+				
+				<div class="form-group">
+					<label class="sr-only">Ville</label>
+					<h:outputText class="form-control" value="#{cl.ville}" />
+					<br/>
+				</div>
+				
+				<div class="form-group">
+					<label class="sr-only">Code Postal</label>
+					<h:outputText class="form-control" value="#{cl.codePostal}" />
+					<br/>
+				</div>
+				
+				<div class="form-group">
+					<label class="sr-only">Telephone</label>
+					<h:outputText class="form-control" value="#{cl.telephone}" />
+					<br/>
+				</div>
+				
+				<div class="form-group">
+					<label class="sr-only">Email</label>
+					<h:outputText class="form-control" value="#{cl.email}" />
+					<br/>
+				</div>
+
+				<div class="form-group">
+					<label class="sr-only">Retour</label>
+					<h:commandButton value="Retour" action="listeclients" />
+				</div>
+
+			</h:form>
+
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+</html>

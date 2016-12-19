@@ -42,19 +42,19 @@ public class ClientControllerImpl implements IClientController, Serializable {
 	@Override
 	public String createClient(Client client) throws Exception {
 		serviceClient.createClient(client);
-		return "listeClients";
+		return "listeclients";
 	}
 
 	@Override
 	public String updateClient(Client client) throws Exception {
 		serviceClient.updateClient(client);
-		return "listeClients";
+		return "listeclients";
 	}
 
 	@Override
 	public String deleteClientById(Long idCli) throws Exception {
 		serviceClient.deleteClientById(idCli);
-		return "listeClients";
+		return "listeclients";
 	}
 
 	@Override
@@ -84,7 +84,7 @@ public class ClientControllerImpl implements IClientController, Serializable {
 		ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
 		Map<String, Object> sessionMap = externalContext.getSessionMap();
 		sessionMap.put("cl", client);
-		return "infoClient";
+		return "infoclient";
 	}
 
 	@Override

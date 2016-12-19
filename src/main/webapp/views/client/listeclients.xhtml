@@ -12,12 +12,8 @@
 		<ui:define name="content">
 			<h:form id="form">
 				<p:dataTable var="client"
-					value="#{clientControllerImpl.findAllClients()}"
-					selection="#{clientControllerImpl.client}" id="clientTable"
-					lazy="true">
-					<p:ajax event="rowSelect"
-						listener="#{clientControllerImpl.onRowSelect}"
-						update=":form:clientDetail" oncomplete="PF('clientDialog').show()" />
+					value="#{clientControllerImpl.findAllClients()}">
+					
 					<p:column headerText="Nom">
 						<h:outputText value="#{client.nom}" />
 					</p:column>
@@ -45,25 +41,12 @@
 					<p:column headerText="Telephone">
 						<h:outputText value="#{client.telephone}" />
 					</p:column>
+					
+					<p:column headerText="Info">
+						<h:commandButton value="Info" action="#{clientControllerImpl.loadClientForInfo(client.idClient)}" />
+					</p:column>
 				</p:dataTable>
 
-				<p:dialog header="Informations Client" widgetVar="clientDialog"
-					modal="true" showEffect="fade" hideEffect="fade" resizable="false">
-					<p:outputPanel id="clientDetail" style="text-align:center;">
-						<p:panelGrid columns="2"
-							rendered="#{not empty clientControllerImpl.client}"
-							columnClasses="label,value">
-
-							<h:outputText value="Nom:" />
-							<h:outputText value="#{clientControllerImpl.client.nom}" />
-
-							<h:outputText value="Prenom" />
-							<h:outputText value="#{clientControllerImpl.client.prenom}" />
-
-
-						</p:panelGrid>
-					</p:outputPanel>
-				</p:dialog>
 			</h:form>
 
 		</ui:define>
