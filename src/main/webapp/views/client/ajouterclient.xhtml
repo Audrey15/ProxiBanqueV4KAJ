@@ -24,14 +24,14 @@
 							<p:inputText id="nom" value="#{client.nom}" required="true"
 								label="Nom" />
 							<p:message for="nom" />
-							<h:outputText value="#{client.nom}" />
+							
 
 
 						</h:panelGrid>
 							* champs requis
 							<br />
 						<p:commandButton value="ajouter" icon="ui-icon-check"
-							update="grid" process="nom" validateClient="true" immediate="true" />
+							validateClient="true" />
 					</h:form>
 				</center>
 			</p:fieldset>
