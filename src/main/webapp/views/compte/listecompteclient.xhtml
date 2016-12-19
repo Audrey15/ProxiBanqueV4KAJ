@@ -12,9 +12,9 @@
 		<ui:define name="content">
 
 			<h:form id="form">
-				<p:dataTable var="compte"
-					value="#{compteControllerImpl.findAllComptes()}"
-					filteredValue="#{compteControllerImpl.findAllComptesByClient(cl)}">
+			
+				<p:dataTable id="compteTable" var="compte"
+					value="#{cl.listeComptes}">
 
 					<p:column headerText="Numéro">
 						<h:outputText value="#{compte.numCompte}" />

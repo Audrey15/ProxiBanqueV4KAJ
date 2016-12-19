@@ -28,8 +28,7 @@ public class CompteControllerImpl implements ICompteController{
 	private List<CompteBancaire> listeComptesByClient = new ArrayList<>();
 
 	private CompteBancaire compte;
-	
-	
+
 	public CompteBancaire getCompte() {
 		return compte;
 	}
@@ -58,9 +57,9 @@ public class CompteControllerImpl implements ICompteController{
 
 	@Override
 	public List<CompteBancaire> findAllComptes() throws Exception {
-		listeComptes = serviceCompte.findAllCompte();
+		listeComptes = serviceCompte.findAllCompte();	
 		return listeComptes;
-	}
+	}	
 
 	@Override
 	public List<CompteBancaire> findAllComptesByClient(Client client) throws Exception {
