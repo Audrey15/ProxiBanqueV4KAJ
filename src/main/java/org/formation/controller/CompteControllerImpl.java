@@ -28,8 +28,6 @@ public class CompteControllerImpl implements ICompteController{
 	private List<CompteBancaire> listeComptesByClient = new ArrayList<>();
 
 	private CompteBancaire compte;
-	
-	private Client client;
 
 	public CompteBancaire getCompte() {
 		return compte;
@@ -37,14 +35,6 @@ public class CompteControllerImpl implements ICompteController{
 
 	public void setCompte(CompteBancaire compte) {
 		this.compte = compte;
-	}
-
-	public Client getClient() {
-		return client;
-	}
-
-	public void setClient(Client client) {
-		this.client = client;
 	}
 
 	@Override
@@ -67,13 +57,9 @@ public class CompteControllerImpl implements ICompteController{
 
 	@Override
 	public List<CompteBancaire> findAllComptes() throws Exception {
-		if(client!=null){
-			listeComptes = serviceCompte.findAllComptesByClient(client);
-		}else{
-			listeComptes = serviceCompte.findAllCompte();	
-		}
+		listeComptes = serviceCompte.findAllCompte();	
 		return listeComptes;
-	}
+	}	
 
 	@Override
 	public List<CompteBancaire> findAllComptesByClient(Client client) throws Exception {
