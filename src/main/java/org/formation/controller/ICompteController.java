@@ -16,6 +16,7 @@ public interface ICompteController {
 	public List<CompteBancaire> findAllComptes()throws Exception;
 	
 	public List<CompteBancaire> findAllComptesByClient(Client client)throws Exception;
-
 	
+	public String virement(CompteBancaire compte1, CompteBancaire compte2, double montant)throws Exception;
+
 }

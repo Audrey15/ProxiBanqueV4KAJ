@@ -58,5 +58,11 @@ public class CompteControllerImpl implements ICompteController{
 		Map<String, Object> sessionMap = externalContext.getSessionMap();
 		sessionMap.put("comp", compte);
 	}
+
+	@Override
+	public String virement(CompteBancaire compte1, CompteBancaire compte2, double montant) throws Exception {
+		serviceCompte.virement(compte1, compte2, montant);
+		return "listecomptes";
+	}
 	
 }
