@@ -29,7 +29,7 @@ public class CompteControllerImpl implements ICompteController{
 
 	private CompteBancaire compte;
 	
-	
+	private Client client;
 
 	public CompteBancaire getCompte() {
 		return compte;
@@ -37,6 +37,14 @@ public class CompteControllerImpl implements ICompteController{
 
 	public void setCompte(CompteBancaire compte) {
 		this.compte = compte;
+	}
+
+	public Client getClient() {
+		return client;
+	}
+
+	public void setClient(Client client) {
+		this.client = client;
 	}
 
 	@Override
@@ -59,7 +67,11 @@ public class CompteControllerImpl implements ICompteController{
 
 	@Override
 	public List<CompteBancaire> findAllComptes() throws Exception {
-		listeComptes = serviceCompte.findAllCompte();
+		if(client!=null){
+			listeComptes = serviceCompte.findAllComptesByClient(client);
+		}else{
+			listeComptes = serviceCompte.findAllCompte();	
+		}
 		return listeComptes;
 	}
 
