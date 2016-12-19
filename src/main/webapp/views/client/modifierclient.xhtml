@@ -78,15 +78,12 @@
 						</h:panelGrid>
 
 						<br />
-						<h:panelGrid id="grid" columns="2" cellpadding="5">
 
-							<p:commandButton value="mettre à jour"
-								action="#{clientControllerImpl.updateClient(cl)}"
-								icon="ui-icon-check" validateClient="true" />
+						<p:commandButton value="mettre à jour"
+							action="#{clientControllerImpl.updateClient(cl)}"
+							icon="ui-icon-check" validateClient="true" />
 
-							<p:commandButton value="retour" icon="ui-icon-close"
-								type="button" onclick="history.go(-1)" />
-						</h:panelGrid>
+
 					</h:form>
 				</center>
 			</p:fieldset>

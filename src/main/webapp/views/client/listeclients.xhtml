@@ -23,23 +23,23 @@
 							<h:outputText value="#{client.prenom}" />
 						</p:column>
 
-						<p:column headerText="Info">
+						<p:column>
 							<h:commandButton value="Info"
 								action="#{clientControllerImpl.loadClientForInfo(client.idClient)}" />
 						</p:column>
 
-						<p:column headerText="Liste des comptes">
-							<h:commandButton value="Comptes"
+						<p:column>
+							<h:commandButton value="Comptes du client"
 								action="#{clientControllerImpl.loadClientForComptes(client.idClient)}" />
 						</p:column>
 
-						<p:column headerText="Supprimer">
-							<h:commandButton value="Supprimer"
+						<p:column>
+							<h:commandButton value="Supprimer client"
 								action="#{clientControllerImpl.deleteClientById(client.idClient)}"
 								onclick="if (!confirm('Etes-vous sûr de vouloir supprimer ce client?')) return false" />
 						</p:column>
 
-						<p:column headerText="ajouter compte">
+						<p:column>
 							<h:commandButton value="Comptes"
 								action="#{clientControllerImpl.loadClientForAjoutCompte(client.idClient)}" />
 						</p:column>
