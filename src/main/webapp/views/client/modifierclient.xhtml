@@ -20,7 +20,7 @@
 
 						<h:panelGrid id="grid" columns="4" cellpadding="5">
 
-							<h:outputLabel for="nom" value="nom *" />
+							<h:outputLabel for="nom" value="Nom *" />
 							<div>&nbsp;</div>
 							<p:inputText id="nom" value="#{cl.nom}" required="true"
 								label="Nom" />
@@ -28,14 +28,14 @@
 							<p:message for="nom" />
 
 
-							<h:outputLabel for="prenom" value="prénom *" />
+							<h:outputLabel for="prenom" value="Prénom *" />
 							<div>&nbsp;</div>
 							<p:inputText id="prenom" value="#{cl.prenom}" required="true"
 								label="Prenom" validatorMessage="prénom non valide" />
 							<p:message for="prenom" />
 
 
-							<h:outputLabel for="email" value="email *" />
+							<h:outputLabel for="email" value="Email *" />
 							<div>&nbsp;</div>
 							<p:inputText id="email" value="#{cl.email}" required="true"
 								label="Email" validatorMessage="email non valide">
@@ -44,7 +44,7 @@
 							</p:inputText>
 							<p:message for="email" />
 
-							<h:outputLabel for="telephone" value="telephone *" />
+							<h:outputLabel for="telephone" value="Téléphone *" />
 							<div>&nbsp;</div>
 							<p:inputText id="telephone" value="#{cl.telephone}"
 								required="true" label="Telephone"
@@ -54,19 +54,19 @@
 							<p:message for="telephone" />
 
 
-							<h:outputLabel for="adresse" value="adresse *" />
+							<h:outputLabel for="adresse" value="Adresse *" />
 							<div>&nbsp;</div>
 							<p:inputText id="adresse" value="#{cl.adresse}" required="true"
 								label="Adresse" />
 							<p:message for="adresse" />
 
-							<h:outputLabel for="ville" value="ville *" />
+							<h:outputLabel for="ville" value="Ville *" />
 							<div>&nbsp;</div>
 							<p:inputText id="ville" value="#{cl.ville}" required="true"
 								label="Ville" validatorMessage="ville non valide" />
 							<p:message for="ville" />
 
-							<h:outputLabel for="codePostal" value="code postal *" />
+							<h:outputLabel for="codePostal" value="Code postal *" />
 							<div>&nbsp;</div>
 							<p:inputText id="codePostal" value="#{cl.codePostal}"
 								required="true" label="Code postal"
@@ -79,7 +79,7 @@
 
 						<br />
 
-						<p:commandButton value="mettre à jour"
+						<p:commandButton value="Mettre à jour"
 							action="#{clientControllerImpl.updateClient(cl)}"
 							icon="ui-icon-check" validateClient="true" />
 

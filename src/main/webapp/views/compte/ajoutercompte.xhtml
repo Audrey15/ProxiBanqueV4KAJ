@@ -22,19 +22,19 @@
 						<h:panelGrid id="grid" columns="3" cellpadding="5">
 
 
-							<h:outputLabel for="typeCompte" value="type du compte *" />
+							<h:outputLabel for="typeCompte" value="Type du compte *" />
 							<div>&nbsp;</div>
 							<p:selectOneMenu id="typeCompte"
 								value="#{compteBancaire.typeCompte}" style="width:150px">
-								<f:selectItem itemLabel="compte courant" itemValue="COURANT" />
-								<f:selectItem itemLabel="compte epargne" itemValue="EPARGNE" />
+								<f:selectItem itemLabel="Courant" itemValue="COURANT" />
+								<f:selectItem itemLabel="Epargne" itemValue="EPARGNE" />
 							</p:selectOneMenu>
 
 
-							<h:outputLabel for="solde" value="solde *" />
+							<h:outputLabel for="solde" value="Solde *" />
 							<div>&nbsp;</div>
 							<p:inputText id="solde" value="#{compteBancaire.solde}"
-								required="true" label="solde" />
+								required="true" label="solde" style="width:150px" />
 							<p:message for="solde" />
 
 
