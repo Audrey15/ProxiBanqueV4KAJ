@@ -65,7 +65,9 @@ public class ServiceCompte implements IServiceCompte {
 	}
 
 	@Override
-	public void virement(CompteBancaire compte1, CompteBancaire compte2, double montant) throws Exception {
+	public void virement(Long numCompte1, Long numCompte2, double montant) throws Exception {
+		CompteBancaire compte1 = daoCompte.findEById(numCompte1);
+		CompteBancaire compte2 = daoCompte.findEById(numCompte2);
 		double s1 = compte1.getSolde();
 		double s2 = compte2.getSolde();
 		s1 = s1 - montant;

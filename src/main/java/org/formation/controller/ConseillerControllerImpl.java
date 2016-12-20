@@ -47,8 +47,14 @@ public class ConseillerControllerImpl implements IConseillerController {
 	public String authentification() throws Exception {
 		List<Conseiller> conseillers = serviceConseiller.findAllConseiller();
 		for (Conseiller cons : conseillers) {
+<<<<<<< HEAD
 			if ((conseiller.getLogin().equals("abc")) && (conseiller.getMotDePasse().equals("123"))) {
 				return "/views/client/listeclients";
+=======
+			if (conseiller.getLogin().equals(cons.getLogin())
+					&& conseiller.getMotDePasse().equals(cons.getMotDePasse())) {
+				return "/webapp/views/client/listeclients.xhtml";
+>>>>>>> origin/master
 			}
 
 		}

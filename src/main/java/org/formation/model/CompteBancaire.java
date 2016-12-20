@@ -63,14 +63,17 @@ public class CompteBancaire {
 		return client;
 	}
 
+	public void setNumCompte(Long numCompte) {
+		this.numCompte = numCompte;
+	}
+
 	public void setClient(Client client) {
 		this.client = client;
 	}
 
 	@Override
 	public String toString() {
-		return "CompteBancaire [numCompte=" + numCompte + ", solde=" + solde + ", typeCompte=" + typeCompte
-				+ ", client=" + client + "]";
+		return client.getNom() + " " + client.getPrenom() + ", Numero de compte : " + this.numCompte + ", Solde : " + this.solde ;
 	}
 
 	

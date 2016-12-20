@@ -12,6 +12,7 @@ import javax.faces.context.FacesContext;
 
 import org.formation.model.Client;
 import org.formation.model.CompteBancaire;
+import org.formation.model.TypeCompte;
 import org.formation.service.IServiceCompte;
 import org.hibernate.Hibernate;
 import org.springframework.stereotype.Controller;
@@ -28,9 +29,9 @@ public class CompteControllerImpl implements ICompteController {
 	private List<CompteBancaire> listeComptes = new ArrayList<>();
 	private List<CompteBancaire> listeComptesByClient = new ArrayList<>();
 
-	private CompteBancaire compteDebiteur;
-	private CompteBancaire compteCrediteur;
-	private Double montant;
+	private CompteBancaire compteDebiteur = new CompteBancaire();
+	private CompteBancaire compteCrediteur = new CompteBancaire();
+	private Double montant = 0.0;
 
 	public Double getMontant() {
 		return montant;
@@ -112,8 +113,8 @@ public class CompteControllerImpl implements ICompteController {
 	}
 
 	@Override
-	public String virement(CompteBancaire compte1, CompteBancaire compte2, double montant) throws Exception {
-		serviceCompte.virement(compte1, compte2, montant);
+	public String virement(Long numCompte1, Long numCompte2, double montant) throws Exception {
+		serviceCompte.virement(numCompte1, numCompte2, montant);
 		return "/views/compte/listecomptes";
 	}
 

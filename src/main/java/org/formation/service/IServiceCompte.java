@@ -22,5 +22,5 @@ public interface IServiceCompte {
 
 	public void createCompteForClient(CompteBancaire compte, Client client) throws Exception;
 
-	public void virement(CompteBancaire compte1, CompteBancaire compte2, double montant) throws Exception;
+	public void virement(Long numCompte1, Long numCompte2, double montant) throws Exception;
 }
