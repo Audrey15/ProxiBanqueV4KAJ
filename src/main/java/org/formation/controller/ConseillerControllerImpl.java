@@ -8,6 +8,7 @@ import javax.annotation.Resource;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
 
 import org.formation.model.Conseiller;
 import org.formation.model.Employe;
@@ -27,6 +28,14 @@ public class ConseillerControllerImpl implements IConseillerController {
 
 	private Conseiller conseiller;
 
+	public List<Conseiller> getListeConseillers() {
+		return listeConseillers;
+	}
+
+	public void setListeConseillers(List<Conseiller> listeConseillers) {
+		this.listeConseillers = listeConseillers;
+	}
+
 	public Conseiller getConseiller() {
 		return conseiller;
 	}
@@ -35,19 +44,15 @@ public class ConseillerControllerImpl implements IConseillerController {
 		this.conseiller = conseiller;
 	}
 
-	public String login(Conseiller conseiller) throws Exception {
+	public String authentification() throws Exception {
 		List<Conseiller> conseillers = serviceConseiller.findAllConseiller();
 		for (Conseiller cons : conseillers) {
-			if (conseiller.getLogin().equals(cons.getLogin())
-					&& conseiller.getMotDePasse().equals(cons.getMotDePasse())) {
-				loadConseiller(conseiller.getIdCons());
-				return "/webapp/views/client/listeclients.xhtml";
+			if ((conseiller.getLogin().equals("abc")) && (conseiller.getMotDePasse().equals("123"))) {
+				return "/views/client/listeclients";
 			}
+
 		}
-		if (conseiller.getLogin().equals("abc") && conseiller.getMotDePasse().equals("123")) {
-			return "/webapp/views/conseiller/listeconseillers.xhtml";
-		}
-		return "";
+		return "login";
 	}
 
 	@Override
