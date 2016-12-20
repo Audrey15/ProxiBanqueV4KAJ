@@ -29,24 +29,24 @@
 							<h:outputText value="#{client.ville}" />
 						</p:column>
 
-						<p:column style="width:55px">
-							<h:commandButton icon="ui-icon-search"
+						<p:column style="width:140px">
+							<h:commandButton value="Informations"
 								action="#{clientControllerImpl.loadClientForInfo(client.idClient)}" />
 						</p:column>
 
 
-						<p:column style="width:55px">
-							<h:commandButton icon="ui-icon-close"
+						<p:column style="width:130px">
+							<h:commandButton value="Supprimer"
 								action="#{clientControllerImpl.deleteClientById(client.idClient)}"
 								onclick="if (!confirm('Êtes-vous sûr de vouloir supprimer ce client ?')) return false" />
 						</p:column>
 						
-						<p:column style="width:195px">
+						<p:column style="width:160px">
 							<h:commandButton value="Liste des comptes"
 								action="#{clientControllerImpl.loadClientForComptes(client.idClient)}" />
 						</p:column>
 
-						<p:column style="width:200px">
+						<p:column style="width:180px">
 							<h:commandButton value="Ajouter un compte"
 								action="#{clientControllerImpl.loadClientForAjoutCompte(client.idClient)}" />
 						</p:column>
