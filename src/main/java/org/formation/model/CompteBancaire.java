@@ -67,4 +67,12 @@ public class CompteBancaire {
 		this.client = client;
 	}
 
+	@Override
+	public String toString() {
+		return "CompteBancaire [numCompte=" + numCompte + ", solde=" + solde + ", typeCompte=" + typeCompte
+				+ ", client=" + client + "]";
+	}
+
+	
+	
 }

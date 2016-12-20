@@ -10,24 +10,36 @@
 
 	<ui:composition template="/WEB-INF/tags/layout.xhtml">
 		<ui:define name="content">
+			<h:form>
+
+				<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+
+					<p:outputLabel for="debiteur" value="Compte débiteur:" />
+					<p:selectOneMenu id="debiteur"
+						value="#{compteControllerImpl.compte}" style="width:400px">
+						<f:selectItem itemLabel="Selectionner un compte à débiter" itemValue=""
+							noSelectionOption="true" />
+						<f:selectItems value="#{compteControllerImpl.findAllComptes()}" />
+					</p:selectOneMenu>
 
 
-			<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+					<p:outputLabel for="crediteur" value="Compte créditeur:" />
+					<p:selectOneMenu id="crediteur"
+						value="#{compteControllerImpl.compte}" style="width:400px">
+						<f:selectItem itemLabel="Selectionner un compte à créditer" itemValue=""
+							noSelectionOption="true" />
+						<f:selectItems value="#{compteControllerImpl.findAllComptes()}" />
+					</p:selectOneMenu>
+					
 
-				<p:outputLabel for="debiteur" value="Compte débiteur:" />
+					<p:outputLabel id="montant" for="montant" value="Montant:" />
+					<p:inputText value="#{compteControllerImpl.montant}"/>
 
-				<p:selectOneMenu id="debiteur"
-					value="#{compteControllerImpl.findAllComptes()}"
-					style="width:125px">
-
-					<f:selectItem itemLabel="Select One" itemValue="" />
-					<f:selectItems value="#{compteControllerImpl.findAllComptes()}"
-						var="comptes" itemLabel="#{comptes.numCompte}"
-						itemValue="#{comptes.numCompte}" />
-
-				</p:selectOneMenu>
-
-			</h:panelGrid>
+					<h:commandButton value="Virement" action="#{compteControllerImpl.virement(debiteur, crediteur, montant)}"/>
+			
+			
+				</h:panelGrid>
+			</h:form>
 		</ui:define>
 	</ui:composition>
 

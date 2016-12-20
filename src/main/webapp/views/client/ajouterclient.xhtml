@@ -76,12 +76,28 @@
 							</p:inputText>
 							<p:message for="codePostal" />
 
+							<h:outputLabel for="typeCompte" value="type du compte *" />
+							<div>&nbsp;</div>
+							<p:selectOneMenu id="typeCompte"
+								value="#{compteBancaire.typeCompte}" style="width:150px">
+								<f:selectItem itemLabel="compte courant" itemValue="COURANT" />
+								<f:selectItem itemLabel="compte epargne" itemValue="EPARGNE" />
+							</p:selectOneMenu>	
+							<p:message for="typeCompte" />
+
+
+							<h:outputLabel for="solde" value="solde *" />
+							<div>&nbsp;</div>
+							<p:inputText id="solde" value="#{compteBancaire.solde}"
+								required="true" label="solde" />
+							<p:message for="solde" />
+
 						</h:panelGrid>
 
 						<br />
 
 							<p:commandButton value="ajouter"
-								action="#{clientControllerImpl.createClient(client)}"
+								action="#{clientControllerImpl.createClient(client, compteBancaire)}"
 								icon="ui-icon-check" validateClient="true" />
 
 					</h:form>

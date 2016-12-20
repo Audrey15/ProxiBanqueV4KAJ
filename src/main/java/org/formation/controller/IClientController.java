@@ -3,12 +3,12 @@ package org.formation.controller;
 import java.util.List;
 
 import org.formation.model.Client;
+import org.formation.model.CompteBancaire;
 import org.formation.model.Conseiller;
-import org.primefaces.event.SelectEvent;
 
 public interface IClientController {
 
-	public String createClient(Client client) throws Exception;
+	public String createClient(Client client, CompteBancaire compte) throws Exception;
 	
 	public String updateClient(Client client)throws Exception;
 	
