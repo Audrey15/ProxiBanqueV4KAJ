@@ -6,15 +6,15 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 
 import org.formation.model.Client;
+import org.formation.model.CompteBancaire;
 import org.formation.model.Conseiller;
 import org.formation.service.IServiceClient;
-import org.primefaces.event.SelectEvent;
+import org.formation.service.IServiceCompte;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.context.annotation.ApplicationScope;
 
@@ -25,6 +25,9 @@ public class ClientControllerImpl implements IClientController, Serializable {
 
 	@Resource
 	IServiceClient serviceClient;
+	
+	@Resource
+	IServiceCompte serviceCompte;
 
 	private List<Client> listeClients = new ArrayList<>();
 	private List<Client> listeClientsByConseiller = new ArrayList<>();
@@ -40,8 +43,9 @@ public class ClientControllerImpl implements IClientController, Serializable {
 	}
 
 	@Override
-	public String createClient(Client client) throws Exception {
+	public String createClient(Client client, CompteBancaire compte) throws Exception {
 		serviceClient.createClient(client);
+		serviceCompte.createCompteForClient(compte, client);
 		return "/views/client/listeclients";
 	}
 
