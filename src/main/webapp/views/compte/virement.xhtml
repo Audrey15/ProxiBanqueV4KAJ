@@ -16,23 +16,23 @@
 
 					<p:outputLabel for="debiteur" value="Compte débiteur:" />
 					<p:selectOneMenu id="debiteur"
-						value="#{compteControllerImpl.compteDebiteur}"
+						value="#{compteControllerImpl.compteDebiteur.numCompte}"
 						style="width:400px">
 						<f:selectItems id="debiteurs"
 							value="#{compteControllerImpl.findAllComptes()}" 
 							var="compte"
-							itemValue="compte.numCompte"/>
+							itemValue="#{compte.numCompte}"/>
 					</p:selectOneMenu>
 
 
 					<p:outputLabel for="crediteur" value="Compte créditeur:" />
 					<p:selectOneMenu id="crediteur"
-						value="#{compteControllerImpl.compteCrediteur}"
+						value="#{compteControllerImpl.compteCrediteur.numCompte}"
 						style="width:400px">
 						<f:selectItems id="crediteurs"
 							value="#{compteControllerImpl.findAllComptes()}"  
 							var="compte"
-							itemValue="compte.numCompte"/>
+							itemValue="#{compte.numCompte}"/>
 					</p:selectOneMenu>
 
 					<p:outputLabel id="montant" for="montant" value="Montant:" />
