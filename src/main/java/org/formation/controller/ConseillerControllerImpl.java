@@ -28,6 +28,25 @@ public class ConseillerControllerImpl implements IConseillerController {
 
 	private Conseiller conseiller;
 
+	private String login;
+	private String motDePasse;
+
+	public String getLogin() {
+		return login;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
+	}
+
+	public String getMotDePasse() {
+		return motDePasse;
+	}
+
+	public void setMotDePasse(String motDePasse) {
+		this.motDePasse = motDePasse;
+	}
+
 	public List<Conseiller> getListeConseillers() {
 		return listeConseillers;
 	}
@@ -47,14 +66,9 @@ public class ConseillerControllerImpl implements IConseillerController {
 	public String authentification() throws Exception {
 		List<Conseiller> conseillers = serviceConseiller.findAllConseiller();
 		for (Conseiller cons : conseillers) {
-<<<<<<< HEAD
-			if ((conseiller.getLogin().equals("abc")) && (conseiller.getMotDePasse().equals("123"))) {
+
+			if ((conseiller.getLogin().equals(login)) && (conseiller.getMotDePasse().equals(motDePasse))) {
 				return "/views/client/listeclients";
-=======
-			if (conseiller.getLogin().equals(cons.getLogin())
-					&& conseiller.getMotDePasse().equals(cons.getMotDePasse())) {
-				return "/webapp/views/client/listeclients.xhtml";
->>>>>>> origin/master
 			}
 
 		}
