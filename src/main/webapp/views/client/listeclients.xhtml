@@ -30,24 +30,24 @@
 						</p:column>
 
 						<p:column style="width:55px">
-							<p:commandButton icon="ui-icon-search"
+							<h:commandButton icon="ui-icon-search"
 								action="#{clientControllerImpl.loadClientForInfo(client.idClient)}" />
 						</p:column>
 
 
 						<p:column style="width:55px">
-							<p:commandButton icon="ui-icon-close"
+							<h:commandButton icon="ui-icon-close"
 								action="#{clientControllerImpl.deleteClientById(client.idClient)}"
 								onclick="if (!confirm('Êtes-vous sûr de vouloir supprimer ce client ?')) return false" />
 						</p:column>
 
 						<p:column style="width:195px">
-							<p:commandButton value="Liste des comptes"
+							<h:commandButton value="Liste des comptes"
 								action="#{clientControllerImpl.loadClientForComptes(client.idClient)}" />
 						</p:column>
 
 						<p:column style="width:200px">
-							<p:commandButton value="Ajouter un compte"
+							<h:commandButton value="Ajouter un compte"
 								action="#{clientControllerImpl.loadClientForAjoutCompte(client.idClient)}" />
 						</p:column>
 					</p:dataTable>

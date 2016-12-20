@@ -40,7 +40,6 @@ public class ConseillerControllerImpl implements IConseillerController {
 		for (Conseiller cons : conseillers) {
 			if (conseiller.getLogin().equals(cons.getLogin())
 					&& conseiller.getMotDePasse().equals(cons.getMotDePasse())) {
-				loadConseiller(conseiller.getIdCons());
 				return "/webapp/views/client/listeclients.xhtml";
 			}
 		}

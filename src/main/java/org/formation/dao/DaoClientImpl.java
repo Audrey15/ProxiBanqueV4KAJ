@@ -21,7 +21,7 @@ public class DaoClientImpl extends EntityDaoImpl<Client> implements IDaoClient {
 
 	@Override
 	public List<Client> findAll() throws Exception {
-		Query query = entityManager.createQuery("select c from Client c join fetch c.listeComptes");
+		Query query = entityManager.createQuery("select c from Client c");
 		return query.getResultList();
 	}
 

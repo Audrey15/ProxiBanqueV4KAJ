@@ -14,13 +14,13 @@ public class DaoConseillerImpl extends EntityDaoImpl<Conseiller> implements IDao
 
 	@Override
 	public Conseiller findEById(Object id) throws Exception {
-		Query query = entityManager.createNamedQuery("select c from Conseiller c join fetch c.listeClients where c.idCons = " + id);
+		Query query = entityManager.createQuery("select c from Conseiller c join fetch c.listeClients where c.idCons = " + id);
 		return (Conseiller) query.getSingleResult();
 	}
 
 	@Override
 	public List<Conseiller> findAll() throws Exception {
-		Query query = entityManager.createNamedQuery("select c from Conseiller c join fetch c.listeClients");
+		Query query = entityManager.createQuery("select c from Conseiller c");
 		return query.getResultList();
 	}
 	
