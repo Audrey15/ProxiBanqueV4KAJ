@@ -29,8 +29,8 @@ public class CompteControllerImpl implements ICompteController {
 	private List<CompteBancaire> listeComptes = new ArrayList<>();
 	private List<CompteBancaire> listeComptesByClient = new ArrayList<>();
 
-	private CompteBancaire compteDebiteur = new CompteBancaire();
-	private CompteBancaire compteCrediteur = new CompteBancaire();
+	private CompteBancaire compteDebiteur;
+	private CompteBancaire compteCrediteur;
 	private Double montant = 0.0;
 
 	public Double getMontant() {

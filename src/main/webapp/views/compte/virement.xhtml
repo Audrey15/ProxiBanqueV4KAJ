@@ -16,40 +16,34 @@
 
 					<p:outputLabel for="debiteur" value="Compte débiteur:" />
 					<p:selectOneMenu id="debiteur"
-						value="#{compteControllerImpl.compteDebiteur.numCompte}" style="width:400px">
-						<f:selectItems value="#{compteControllerImpl.findAllComptes()}" var="#{compteControllerImpl.compteDebiteur}" itemValue="#{compteControllerImpl.compteDebiteur.numCompte}"/>
+						value="#{compteControllerImpl.compteDebiteur}"
+						style="width:400px">
+						<f:selectItems id="debiteurs"
+							value="#{compteControllerImpl.findAllComptes()}" 
+							var="compte"
+							itemValue="compte.numCompte"/>
 					</p:selectOneMenu>
 
 
 					<p:outputLabel for="crediteur" value="Compte créditeur:" />
 					<p:selectOneMenu id="crediteur"
-						value="#{compteControllerImpl.compteCrediteur.numCompte}" style="width:400px">
-						<f:selectItems value="#{compteControllerImpl.findAllComptes()}" var="#{compteControllerImpl.compteCrediteur}" itemValue="#{compteControllerImpl.compteCrediteur.numCompte}"/>
+						value="#{compteControllerImpl.compteCrediteur}"
+						style="width:400px">
+						<f:selectItems id="crediteurs"
+							value="#{compteControllerImpl.findAllComptes()}"  
+							var="compte"
+							itemValue="compte.numCompte"/>
 					</p:selectOneMenu>
 
 					<p:outputLabel id="montant" for="montant" value="Montant:" />
-					<p:inputText value="#{compteControllerImpl.montant}"/>
+					<p:inputText value="#{compteControllerImpl.montant}" />
 
 					<h:commandButton value="Virement"
 						action="#{compteControllerImpl.virement(compteControllerImpl.compteDebiteur.numCompte, compteControllerImpl.compteCrediteur.numCompte, compteControllerImpl.montant)}" />
 
 				</h:panelGrid>
 			</h:form>
-			
-			<script type="text/javascript">
-			
-			function debit(){
-				var deb = document.getElementById("debiteurs").value;
-				return deb;
-			}
-			
-			function credit(){
-				var cre = document.getElementById("crediteurs").value;
-				return cre;
-			}
-			
-			</script>
-			
+
 		</ui:define>
 	</ui:composition>
 
