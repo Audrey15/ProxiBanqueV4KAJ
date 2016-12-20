@@ -1,5 +1,7 @@
 package org.formation.testmain;
 
+import java.util.List;
+
 import org.formation.dao.DaoClientImpl;
 import org.formation.dao.IDaoClient;
 
@@ -26,55 +28,55 @@ public class testMain {
 		IServiceCompte serviceCompte = context.getBean(ServiceCompte.class);
 		IServiceConseiller serviceConseiller = context.getBean(ServiceConseiller.class);
 
+		// IDaoClient dao = new DaoClientImpl();
 
-		IDaoClient dao = new DaoClientImpl();
-		
-		//Client c = new Client("c", "c1", "c1", "c1", "c1", "c1", "c1");
-//		Client c2 = new Client("c2", "c2", "c2", "c2", "c2", "c2", "c2");
-//		
-//
-//		Conseiller cons1 = new Conseiller("cons1", "cons1", "cons1", "cons1", "cons1", "cons1", "cons1", "cons1",
-//				"cons1");
-//		
-//		serviceConseiller.createConseiller(cons1);
+		// Client c = new Client("c", "c1", "c1", "c1", "c1", "c1", "c1");
+		// Client c2 = new Client("c2", "c2", "c2", "c2", "c2", "c2", "c2");
+		//
+		//
+		// Conseiller cons1 = new Conseiller("cons1", "cons1", "cons1", "cons1",
+		// "cons1", "cons1", "cons1", "cons1",
+		// "cons1");
+		//
+		// serviceConseiller.createConseiller(cons1);
 
-		CompteBancaire compte = new CompteBancaire();
-		
-		
-		
-//		c.getListeComptes().add(compte);
-		
-		//serviceCompte.createCompte(compte);
-		
-		Client client = serviceClient.findClientById(20L);
-		System.out.println(client);
-		
-		//client.addCompte(compte);
-		
-		//serviceCompte.createCompteForClient(compte, 20L);
-		
-//		compte.setClient(c);
-		
+		// CompteBancaire compte = new CompteBancaire();
+
+		// c.getListeComptes().add(compte);
+
 		// serviceCompte.createCompte(compte);
-	
-		//CompteBancaire compte = serviceCompte.findCompteByNum(numCompte); 
-		
-		serviceCompte.createCompteForClient(compte, client);
 
-//		Client c = new Client("c1", "c1", "c1", "c1", "c1", "c1", "c1");
-//		Client c2 = new Client("c2", "c2", "c2", "c2", "c2", "c2", "c2");
-//		
-//
-//		Conseiller cons1 = new Conseiller("cons1", "cons1", "cons1", "cons1", "cons1", "cons1", "cons1", "cons1",
-//				"cons1");
-//		
-//		serviceConseiller.createConseiller(cons1);
+		// Client client = serviceClient.findClientById(20L);
+//		System.out.println(client);
+
+		// client.addCompte(compte);
+
+		// serviceCompte.createCompteForClient(compte, 20L);
+
+		// compte.setClient(c);
+
+		// serviceCompte.createCompte(compte);
+
+		// CompteBancaire compte = serviceCompte.findCompteByNum(numCompte);
+
+//		serviceCompte.createCompteForClient(compte, client);
+
+		// Client c = new Client("c1", "c1", "c1", "c1", "c1", "c1", "c1");
+		// Client c2 = new Client("c2", "c2", "c2", "c2", "c2", "c2", "c2");
+		//
+		//
+		// Conseiller cons1 = new Conseiller("cons1", "cons1", "cons1", "cons1",
+		// "cons1", "cons1", "cons1", "cons1",
+		// "cons1");
+		//
+		// serviceConseiller.createConseiller(cons1);
+
+//		CompteBancaire com = new CompteBancaire(300.0, TypeCompte.COURANT);
+//		com.setClient(serviceClient.findClientById(5L));
+//		serviceCompte.createCompte(com);
 		
-		CompteBancaire com = new CompteBancaire(300.0, TypeCompte.COURANT);
-		com.setClient(serviceClient.findClientById(5L));
-		serviceCompte.createCompte(com);
-		
-		
+		List<CompteBancaire> liste = serviceCompte.findAllCompte();
+		System.out.println(liste);
 
 	}
 }

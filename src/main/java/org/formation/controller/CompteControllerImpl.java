@@ -29,9 +29,21 @@ public class CompteControllerImpl implements ICompteController {
 	private List<CompteBancaire> listeComptes = new ArrayList<>();
 	private List<CompteBancaire> listeComptesByClient = new ArrayList<>();
 
-	private CompteBancaire compteDebiteur = new CompteBancaire();
-	private CompteBancaire compteCrediteur = new CompteBancaire();
+	private CompteBancaire compteDebiteur;
+	private CompteBancaire compteCrediteur;
 	private Double montant = 0.0;
+
+	private CompteBancaire compte;
+	
+	
+	
+	public CompteBancaire getCompte() {
+		return compte;
+	}
+
+	public void setCompte(CompteBancaire compte) {
+		this.compte = compte;
+	}
 
 	public Double getMontant() {
 		return montant;
@@ -118,6 +130,14 @@ public class CompteControllerImpl implements ICompteController {
 		return "/views/compte/listecomptes";
 	}
 
-	
+	public String getCptDebit(){
+		Long num = null;
+		for (CompteBancaire compteBancaire : listeComptes) {
+			num = compteBancaire.getNumCompte();
+		}
+		 return "";
+		
+		
+	}
 	
 }
