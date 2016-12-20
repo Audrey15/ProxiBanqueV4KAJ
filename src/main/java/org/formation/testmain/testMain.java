@@ -28,17 +28,26 @@ public class testMain {
 		IServiceCompte serviceCompte = context.getBean(ServiceCompte.class);
 		IServiceConseiller serviceConseiller = context.getBean(ServiceConseiller.class);
 
+
 		// IDaoClient dao = new DaoClientImpl();
+
 
 		// Client c = new Client("c", "c1", "c1", "c1", "c1", "c1", "c1");
 		// Client c2 = new Client("c2", "c2", "c2", "c2", "c2", "c2", "c2");
 		//
 		//
+
 		// Conseiller cons1 = new Conseiller("cons1", "cons1", "cons1", "cons1",
 		// "cons1", "cons1", "cons1", "cons1",
 		// "cons1");
 		//
 		// serviceConseiller.createConseiller(cons1);
+
+		Conseiller cons1 = new Conseiller("cons1", "cons1", "cons1", "cons1", "cons1", "cons1", "cons1", "cons1",
+				"cons1");
+		
+		serviceConseiller.createConseiller(cons1);
+
 
 		// CompteBancaire compte = new CompteBancaire();
 
@@ -47,7 +56,11 @@ public class testMain {
 		// serviceCompte.createCompte(compte);
 
 		// Client client = serviceClient.findClientById(20L);
+
 //		System.out.println(client);
+
+		// System.out.println(client);
+
 
 		// client.addCompte(compte);
 
@@ -59,7 +72,11 @@ public class testMain {
 
 		// CompteBancaire compte = serviceCompte.findCompteByNum(numCompte);
 
+
 //		serviceCompte.createCompteForClient(compte, client);
+
+		// serviceCompte.createCompteForClient(compte, client);
+
 
 		// Client c = new Client("c1", "c1", "c1", "c1", "c1", "c1", "c1");
 		// Client c2 = new Client("c2", "c2", "c2", "c2", "c2", "c2", "c2");
@@ -71,12 +88,19 @@ public class testMain {
 		//
 		// serviceConseiller.createConseiller(cons1);
 
+
 //		CompteBancaire com = new CompteBancaire(300.0, TypeCompte.COURANT);
 //		com.setClient(serviceClient.findClientById(5L));
 //		serviceCompte.createCompte(com);
 		
 		List<CompteBancaire> liste = serviceCompte.findAllCompte();
 		System.out.println(liste);
+
+		// CompteBancaire com = new CompteBancaire(300.0, TypeCompte.COURANT);
+		// com.setClient(serviceClient.findClientById(5L));
+		// serviceCompte.createCompte(com);
+		//
+
 
 	}
 }
