@@ -28,7 +28,8 @@ public class CompteControllerImpl implements ICompteController {
 	private List<CompteBancaire> listeComptes = new ArrayList<>();
 	private List<CompteBancaire> listeComptesByClient = new ArrayList<>();
 
-	private CompteBancaire compte;
+	private CompteBancaire compteDebiteur;
+	private CompteBancaire compteCrediteur;
 	private Double montant;
 
 	public Double getMontant() {
@@ -38,13 +39,21 @@ public class CompteControllerImpl implements ICompteController {
 	public void setMontant(Double montant) {
 		this.montant = montant;
 	}
-
-	public CompteBancaire getCompte() {
-		return compte;
+	
+	public CompteBancaire getCompteDebiteur() {
+		return compteDebiteur;
 	}
 
-	public void setCompte(CompteBancaire compte) {
-		this.compte = compte;
+	public void setCompteDebiteur(CompteBancaire compteDebiteur) {
+		this.compteDebiteur = compteDebiteur;
+	}
+
+	public CompteBancaire getCompteCrediteur() {
+		return compteCrediteur;
+	}
+
+	public void setCompteCrediteur(CompteBancaire compteCrediteur) {
+		this.compteCrediteur = compteCrediteur;
 	}
 
 	public List<CompteBancaire> getListeComptes() {

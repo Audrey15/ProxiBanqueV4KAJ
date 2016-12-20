@@ -16,37 +16,27 @@
 
 					<p:outputLabel for="debiteur" value="Compte débiteur:" />
 					<p:selectOneMenu id="debiteur"
-						value="#{compteControllerImpl.compte}" style="width:400px" action="debit();">
+						value="#{compteControllerImpl.compteDebiteur}" style="width:400px">
 						<f:selectItems value="#{compteControllerImpl.findAllComptes()}" />
 					</p:selectOneMenu>
 
 
 					<p:outputLabel for="crediteur" value="Compte créditeur:" />
 					<p:selectOneMenu id="crediteur"
-						value="#{compteControllerImpl.compte}" style="width:400px" action="credit();">
+						value="#{compteControllerImpl.compteCrediteur}"
+						style="width:400px">
 						<f:selectItems value="#{compteControllerImpl.findAllComptes()}" />
 					</p:selectOneMenu>
-					
+
 
 					<p:outputLabel id="montant" for="montant" value="Montant:" />
-					<p:inputText value="#{compteControllerImpl.montant}"/>
+					<p:inputText value="#{compteControllerImpl.montant}" />
 
-					<h:commandButton value="Virement" action="#{compteControllerImpl.virement(deb, cre, montant)}"/>
-			
-			
+					<h:commandButton value="Virement"
+						action="#{compteControllerImpl.virement(compteControllerImpl.compteDebiteur, compteControllerImpl.compteCrediteur, compteControllerImpl.montant)}" />
+
 				</h:panelGrid>
 			</h:form>
-			<script type="text/javascript">
-			function debit(){
-				var deb = document.getElementById("form:debiteur").value;
-				return deb;
-			}
-			
-			function credit(){
-				var cre = document.getElementById("form:crediteur").value;
-				return cre;
-			}
-			</script>
 		</ui:define>
 	</ui:composition>
 
