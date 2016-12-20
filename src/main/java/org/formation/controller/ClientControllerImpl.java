@@ -6,10 +6,13 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 import org.formation.model.Client;
 import org.formation.model.CompteBancaire;
 import org.formation.model.Conseiller;
@@ -25,7 +28,7 @@ public class ClientControllerImpl implements IClientController, Serializable {
 
 	@Resource
 	IServiceClient serviceClient;
-	
+
 	@Resource
 	IServiceCompte serviceCompte;
 
@@ -56,8 +59,15 @@ public class ClientControllerImpl implements IClientController, Serializable {
 	}
 
 	@Override
-	public String deleteClientById(Long idCli) throws Exception {
-		serviceClient.deleteClientById(idCli);
+	public String deleteClientById(Long idCli) {
+		try {
+			serviceClient.deleteClientById(idCli);
+			notificationSuccess("Client supprimé");
+
+		} catch (Exception e) {
+			notificationError(e, "Client supprimé");
+
+		}
 		return "/views/client/listeclients";
 	}
 
@@ -102,6 +112,20 @@ public class ClientControllerImpl implements IClientController, Serializable {
 	public String loadClientForAjoutCompte(Long idCli) throws Exception {
 		loadClient(idCli);
 		return "/views/compte/ajoutercompte";
+	}
+
+	public void notificationSuccess(String operation) {
+		Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Operation " + operation + " success");
+		FacesMessage msg = null;
+		msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Notification", "Success");
+		FacesContext.getCurrentInstance().addMessage(null, msg);
+	}
+
+	public void notificationError(Exception e, String operation) {
+		Logger.getLogger(this.getClass().getName()).log(Level.ERROR, "Operation " + operation + " Error ", e);
+		FacesMessage msg = null;
+		msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Notification", "Une erreur est survenue");
+		FacesContext.getCurrentInstance().addMessage(null, msg);
 	}
 
 }

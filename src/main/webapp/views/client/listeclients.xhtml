@@ -33,11 +33,20 @@
 								action="#{clientControllerImpl.loadClientForComptes(client.idClient)}" />
 						</p:column>
 
-						<p:column>
-							<h:commandButton value="Supprimer client"
+						<p:column headerText="Delete" style="width:8%">
+							<p:commandLink update=":form"
 								action="#{clientControllerImpl.deleteClientById(client.idClient)}"
-								onclick="if (!confirm('Etes-vous sûr de vouloir supprimer ce client?')) return false" />
+								onclick="if (!confirm('Etes-vous sûr de vouloir supprimer ce client?')) return false"
+								oncomplete="PF('confirmDeleteDlg').show()"
+								image="ui-icon ui-icon-close" title="Delete">
+								<f:setPropertyActionListener value="#{object}"
+									target="#{clientControllerImpl.client}" />
+								<h:outputText styleClass="ui-icon ui-icon-close" />
+							</p:commandLink>
 						</p:column>
+
+
+						
 
 						<p:column>
 							<h:commandButton value="Ajouter un compte"
