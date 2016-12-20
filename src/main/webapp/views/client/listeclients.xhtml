@@ -39,17 +39,19 @@
 								action="#{clientControllerImpl.deleteClientById(client.idClient)}"
 								onclick="if (!confirm('Êtes-vous sûr de vouloir supprimer ce client ?')) return false" />
 						</p:column>
-
-
+						
 						<p:column style="width:195px">
 							<p:commandButton value="Liste des comptes"
+								action="#{clientControllerImpl.loadClientForComptes(client.idClient)}" />
+						</p:column>
+
+						<p:column style="width:195px">
+							<p:commandButton value="Ajouter un compte"
 								action="#{clientControllerImpl.loadClientForAjoutCompte(client.idClient)}" />
 						</p:column>
 					</p:dataTable>
 				</h:form>
 			</p:fieldset>
-			
-
 
 		</ui:define>
 	</ui:composition>
