@@ -25,7 +25,7 @@ public class CompteBancaire {
 	
 	private TypeCompte typeCompte;
 
-	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+	@ManyToOne(cascade = { CascadeType.ALL })
 	@JoinColumn(name = "client_id")
 	private Client client;
 	

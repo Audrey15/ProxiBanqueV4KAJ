@@ -34,7 +34,7 @@ public class Client extends Personne {
 	@JoinColumn(name = "conseiller_id")
 	private Conseiller conseiller;
 
-	@OneToMany(mappedBy = "client", cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+	@OneToMany(mappedBy = "client", cascade = { CascadeType.ALL })
 	private Set<CompteBancaire> listeComptes = new HashSet<>();
 
 	public Client() {
