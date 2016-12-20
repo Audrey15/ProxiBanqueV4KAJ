@@ -20,15 +20,24 @@ import org.springframework.web.context.annotation.ApplicationScope;
 @Controller
 @ManagedBean
 @ApplicationScope
-public class CompteControllerImpl implements ICompteController{
+public class CompteControllerImpl implements ICompteController {
 
 	@Resource
 	IServiceCompte serviceCompte;
-	
+
 	private List<CompteBancaire> listeComptes = new ArrayList<>();
 	private List<CompteBancaire> listeComptesByClient = new ArrayList<>();
 
 	private CompteBancaire compte;
+	private Double montant;
+
+	public Double getMontant() {
+		return montant;
+	}
+
+	public void setMontant(Double montant) {
+		this.montant = montant;
+	}
 
 	public CompteBancaire getCompte() {
 		return compte;
@@ -38,7 +47,6 @@ public class CompteControllerImpl implements ICompteController{
 		this.compte = compte;
 	}
 
-	
 	public List<CompteBancaire> getListeComptes() {
 		return listeComptes;
 	}
@@ -77,17 +85,17 @@ public class CompteControllerImpl implements ICompteController{
 
 	@Override
 	public List<CompteBancaire> findAllComptes() throws Exception {
-		listeComptes = serviceCompte.findAllCompte();	
+		listeComptes = serviceCompte.findAllCompte();
 		return listeComptes;
-	}	
+	}
 
 	@Override
 	public List<CompteBancaire> findAllComptesByClient(Client client) throws Exception {
 		listeComptesByClient = serviceCompte.findAllComptesByClient(client);
 		return listeComptesByClient;
 	}
-	
-	public void loadCompte(Long numCompte) throws Exception{
+
+	public void loadCompte(Long numCompte) throws Exception {
 		CompteBancaire compte = serviceCompte.findCompteByNum(numCompte);
 		ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
 		Map<String, Object> sessionMap = externalContext.getSessionMap();
@@ -99,5 +107,7 @@ public class CompteControllerImpl implements ICompteController{
 		serviceCompte.virement(compte1, compte2, montant);
 		return "/views/compte/listecomptes";
 	}
+
+	
 	
 }
