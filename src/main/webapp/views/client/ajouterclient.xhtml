@@ -12,99 +12,112 @@
 		<ui:define name="content">
 
 
-			<p:fieldset legend="Ajouter un client" style="margin-bottom:20px">
+			<p:fieldset legend="Ajouter un client et un compte bancaire"
+				style="margin-bottom:20px">
 				<center>
 					<h:form>
 						<p:messages autoUpdate="true" />
 						<br />
 
-						<p:fieldset legend="Informations client"
-							style="margin-bottom:20px">
-							<div>* champs requis</div>
-							<h:panelGrid id="grid" columns="4" cellpadding="5">
 
-								<h:outputLabel for="nom" value="Nom *" />
-								<div>&nbsp;</div>
-								<p:inputText id="nom" value="#{client.nom}" required="true"
-									label="Nom" />
-								<p:message for="nom" />
+						<h:panelGrid id="grid" columns="4" cellpadding="5">
 
 
-								<h:outputLabel for="prenom" value="Prénom *" />
-								<div>&nbsp;</div>
-								<p:inputText id="prenom" value="#{client.prenom}"
-									required="true" label="Prenom" />
-								<p:message for="prenom" />
+							<h:outputLabel value="Ajouter un client" style="font-size:24px" />
+							
+							<div>&nbsp;</div>
+							<h:outputLabel value="" />
+							<h:outputLabel value="" />
+
+							<h:outputLabel for="nom" value="Nom *" />
+							<div>&nbsp;</div>
+							<p:inputText id="nom" value="#{client.nom}" required="true"
+								label="Nom" />
+							<p:message for="nom" />
 
 
-								<h:outputLabel for="email" value="Email *" />
-								<div>&nbsp;</div>
-								<p:inputText id="email" value="#{client.email}" required="true"
-									label="Email"
-									validatorMessage="email non valide, format xx@xx.xx">
-									<f:validateRegex
-										pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
-								</p:inputText>
-								<p:message for="email" />
-
-								<h:outputLabel for="telephone" value="Téléphone *" />
-								<div>&nbsp;</div>
-								<p:inputText id="telephone" value="#{client.telephone}"
-									required="true" label="Telephone"
-									validatorMessage="telephone non valide">
-									<f:validateRegex pattern="^[0-9]{10}$" />
-								</p:inputText>
-								<p:message for="telephone" />
+							<h:outputLabel for="prenom" value="Prénom *" />
+							<div>&nbsp;</div>
+							<p:inputText id="prenom" value="#{client.prenom}" required="true"
+								label="Prenom" />
+							<p:message for="prenom" />
 
 
-								<h:outputLabel for="adresse" value="Adresse *" />
-								<div>&nbsp;</div>
-								<p:inputText id="adresse" value="#{client.adresse}"
-									required="true" label="Adresse" />
-								<p:message for="adresse" />
+							<h:outputLabel for="email" value="Email *" />
+							<div>&nbsp;</div>
+							<p:inputText id="email" value="#{client.email}" required="true"
+								label="Email"
+								validatorMessage="email non valide, format xx@xx.xx">
+								<f:validateRegex
+									pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+							</p:inputText>
+							<p:message for="email" />
 
-								<h:outputLabel for="ville" value="Ville *" />
-								<div>&nbsp;</div>
-								<p:inputText id="ville" value="#{client.ville}" required="true"
-									label="Ville" validatorMessage="ville non valide" />
-								<p:message for="ville" />
-
-								<h:outputLabel for="codePostal" value="Code postal *" />
-								<div>&nbsp;</div>
-								<p:inputText id="codePostal" value="#{client.codePostal}"
-									required="true" label="Code postal"
-									validatorMessage="code postal non valide">
-									<f:validateRegex pattern="^[0-9]{5}$" />
-								</p:inputText>
-								<p:message for="codePostal" />
-
-							</h:panelGrid>
-						</p:fieldset>
-
-						<p:fieldset legend="Ajouter un compte"
-								style="margin-bottom:20px">
-							<h:panelGrid id="grid" columns="4" cellpadding="5">
-								<h:outputLabel for="typeCompte" value="Type du compte *" />
-								<div>&nbsp;</div>
-								<p:selectOneMenu id="typeCompte"
-									value="#{compteBancaire.typeCompte}" style="width:190px">
-									<f:selectItem itemLabel="compte courant" itemValue="COURANT" />
-									<f:selectItem itemLabel="compte epargne" itemValue="EPARGNE" />
-								</p:selectOneMenu>
-								<p:message for="typeCompte" />
+							<h:outputLabel for="telephone" value="Téléphone *" />
+							<div>&nbsp;</div>
+							<p:inputText id="telephone" value="#{client.telephone}"
+								required="true" label="Telephone"
+								validatorMessage="telephone non valide">
+								<f:validateRegex pattern="^[0-9]{10}$" />
+							</p:inputText>
+							<p:message for="telephone" />
 
 
-								<h:outputLabel for="solde" value="Solde *" />
-								<div>&nbsp;</div>
-								<p:inputText id="solde" value="#{compteBancaire.solde}"
-									required="true" label="solde"/>
-								<p:message for="solde" />
-							</h:panelGrid>
-						</p:fieldset>
+							<h:outputLabel for="adresse" value="Adresse *" />
+							<div>&nbsp;</div>
+							<p:inputText id="adresse" value="#{client.adresse}"
+								required="true" label="Adresse" />
+							<p:message for="adresse" />
+
+							<h:outputLabel for="ville" value="Ville *" />
+							<div>&nbsp;</div>
+							<p:inputText id="ville" value="#{client.ville}" required="true"
+								label="Ville" validatorMessage="ville non valide" />
+							<p:message for="ville" />
+
+							<h:outputLabel for="codePostal" value="Code postal *" />
+							<div>&nbsp;</div>
+							<p:inputText id="codePostal" value="#{client.codePostal}"
+								required="true" label="Code postal"
+								validatorMessage="code postal non valide">
+								<f:validateRegex pattern="^[0-9]{5}$" />
+							</p:inputText>
+							<p:message for="codePostal" />
+
+							<h:outputLabel value="" />
+							<h:outputLabel value="" />
+							<h:outputLabel value="" />
+
+
+							<br />
+							<h:outputLabel value="Ajouter un compte" style="font-size:24px"/>
+							<div>&nbsp;</div>
+							<h:outputLabel value="" />
+							<h:outputLabel value="" />
+
+
+							<h:outputLabel for="typeCompte" value="Type du compte *" />
+							<div>&nbsp;</div>
+							<p:selectOneMenu id="typeCompte"
+								value="#{compteBancaire.typeCompte}" style="width:190px">
+								<f:selectItem itemLabel="compte courant" itemValue="COURANT" />
+								<f:selectItem itemLabel="compte epargne" itemValue="EPARGNE" />
+							</p:selectOneMenu>
+							<p:message for="typeCompte" />
+
+
+							<h:outputLabel for="solde" value="Solde *" />
+							<div>&nbsp;</div>
+							<p:inputText id="solde" value="#{compteBancaire.solde}"
+								required="true" label="solde" />
+							<p:message for="solde" />
+
+						</h:panelGrid>
+						<div>* champs requis</div>
 
 						<br />
 
-						<p:commandButton value="Ajouter"
+						<h:commandButton value="Ajouter" class="btn btn-primary"
 							action="#{clientControllerImpl.createClient(client, compteBancaire)}"
 							icon="ui-icon-check" validateClient="true" />
 
