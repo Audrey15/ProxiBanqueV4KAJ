@@ -31,14 +31,14 @@
 							<h:outputText value="#{conseiller.motDePasse}" />
 						</p:column>
 
-						<p:column headerText="Info">
-							<h:commandButton value="Info"
+						<p:column style="width:78px">
+							<h:commandButton value="Info" class="btn btn-info"
 								action="#{conseillerControllerImpl.loadConseillerForInfo(conseiller.idCons)}" />
 						</p:column>
 
-						<p:column headerText="Supprimer">
-							<h:commandButton value="Supprimer"
-								onclick="if (!confirm('Etes-vous sûr de vouloir supprimer ce conseiller?')) return false"
+						<p:column style="width:55px">
+							<h:commandButton value="x" class="btn btn-danger"
+								onclick="if (!confirm('Êtes-vous sûr de vouloir supprimer ce conseiller ?')) return false"
 								action="#{conseillerControllerImpl.deleteConseillerById(conseiller.idCons)}">
 							</h:commandButton>
 						</p:column>
