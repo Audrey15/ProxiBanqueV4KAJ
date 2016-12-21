@@ -9,9 +9,16 @@ import org.formation.model.Client;
 import org.formation.model.Conseiller;
 import org.springframework.stereotype.Service;
 
+/**
+ * @author KAJ
+ * Classe service conseiller
+ */
 @Service
 public class ServiceConseiller implements IServiceConseiller {
 
+	/**
+	 * Injection de la dao conseiller
+	 */
 	@Resource(name="daoConseiller")
 	private IDaoConseiller daoConseiller;
 

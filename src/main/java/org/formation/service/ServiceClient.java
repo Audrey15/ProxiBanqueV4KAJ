@@ -13,19 +13,27 @@ import org.formation.model.Client;
 import org.formation.model.Conseiller;
 import org.springframework.stereotype.Service;
 
+/**
+ * @author KAJ Classe service client
+ */
 @Service("serviceClient")
-public class ServiceClient implements IServiceClient{
+public class ServiceClient implements IServiceClient {
 
+	/**
+	 * Injection de la dao client
+	 */
 	@Resource
 	private IDaoClient daoClient;
-	
+
+	/**
+	 * Injection de la dao conseiller
+	 */
 	@Resource
 	private IDaoConseiller daoConseiller;
 
-	
 	@Override
 	public void createClient(Client c) throws Exception {
-		daoClient.create(c);	
+		daoClient.create(c);
 
 	}
 
@@ -61,8 +69,8 @@ public class ServiceClient implements IServiceClient{
 	public List<Client> findAllClientsByConseiller(Conseiller conseiller) throws Exception {
 		List<Client> listeClients = daoClient.findAll();
 		List<Client> listeClientsByConseiller = new ArrayList<>();
-		for(Client client:listeClients){
-			if(client.getConseiller().equals(conseiller)){
+		for (Client client : listeClients) {
+			if (client.getConseiller().equals(conseiller)) {
 				listeClientsByConseiller.add(client);
 			}
 		}

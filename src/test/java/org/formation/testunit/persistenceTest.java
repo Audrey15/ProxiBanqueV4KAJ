@@ -7,7 +7,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
-import org.formation.config.ConfigurationClasse;
 import org.formation.dao.DaoClientImpl;
 import org.formation.dao.DaoCompteImpl;
 import org.formation.dao.DaoConseillerImpl;
@@ -23,22 +22,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-@ContextConfiguration (locations = {"/META-INF/spring/applicationContext-db-mysql.xml"})
+@ContextConfiguration(locations = { "/META-INF/spring/applicationContext-db-mysql.xml" })
 @RunWith(SpringJUnit4ClassRunner.class)
 public class persistenceTest {
 
 	@PersistenceContext
 	private EntityManager entityManager;
-	
+
 	@Autowired
 	IDaoClient daoClient;
-	
+
 	@Autowired
 	IDaoConseiller daoConseiller;
-	
+
 	@Autowired
 	IDaoCompte daoCompte;
-	
+
 	@Test
 	@Transactional
 	public void testDaoClientImpl() throws Exception {
@@ -46,7 +45,7 @@ public class persistenceTest {
 		daoClient.create(client);
 		assertEquals(2, daoClient.count());
 	}
-	
+
 	@Test
 	@Transactional
 	public void testDaoConseillerImpl() throws Exception {
@@ -62,19 +61,20 @@ public class persistenceTest {
 		daoCompte.create(compte);
 		assertEquals(2, daoCompte.count());
 	}
-	
-//	@Test
-//	@Transactional
-//	public void testSauverClientAvecCompte() throws Exception {
-//		Client client = new Client();
-//		client.getListeComptes().add(new CompteBancaire());
-//		entityManager.persist(client);
-//		entityManager.flush();
-//		entityManager.clear();
-//		Client autre = entityManager.find(Client.class, client.getId());
-//		assertEquals(0, autre.getListeComptes().size());
-//		assertEquals(autre, autre.getListeComptes().iterator().next().getClient());
-//
-//	}
-	
+
+	// @Test
+	// @Transactional
+	// public void testSauverClientAvecCompte() throws Exception {
+	// Client client = new Client();
+	// client.getListeComptes().add(new CompteBancaire());
+	// entityManager.persist(client);
+	// entityManager.flush();
+	// entityManager.clear();
+	// Client autre = entityManager.find(Client.class, client.getId());
+	// assertEquals(0, autre.getListeComptes().size());
+	// assertEquals(autre,
+	// autre.getListeComptes().iterator().next().getClient());
+	//
+	// }
+
 }

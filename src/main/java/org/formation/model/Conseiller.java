@@ -17,6 +17,10 @@ import javax.persistence.OneToMany;
 
 import org.springframework.web.context.annotation.SessionScope;
 
+/**
+ * @author KAJ
+ * Classe modèle conseiller, étend la classe Employe
+ */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @ManagedBean

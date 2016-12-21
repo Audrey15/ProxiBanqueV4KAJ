@@ -11,6 +11,10 @@ import javax.persistence.ManyToOne;
 
 import org.springframework.web.context.annotation.SessionScope;
 
+/**
+ * @author KAJ
+ * Classe modèle compte bancaire
+ */
 @Entity
 @SessionScope
 @ManagedBean
