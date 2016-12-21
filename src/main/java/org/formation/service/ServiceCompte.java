@@ -4,60 +4,62 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.persistence.PostRemove;
 
 import org.formation.dao.IDaoClient;
 import org.formation.dao.IDaoCompte;
 import org.formation.model.Client;
 import org.formation.model.CompteBancaire;
+import org.hibernate.annotations.Target;
 import org.springframework.stereotype.Service;
 
 @Service
 public class ServiceCompte implements IServiceCompte {
 
-	@Resource(name="daoCompte")
+	@Resource(name = "daoCompte")
 	private IDaoCompte daoCompte;
-	
+
 	@Resource
 	private IDaoClient daoClient;
-	
+
 	@Override
-	public void createCompte(CompteBancaire compte) throws Exception{
+	public void createCompte(CompteBancaire compte) throws Exception {
 		daoCompte.create(compte);
 	}
 
 	@Override
-	public void updateCompte(CompteBancaire compte)throws Exception {
+	public void updateCompte(CompteBancaire compte) throws Exception {
 		daoCompte.update(compte);
 	}
 
 	@Override
-	public void deleteCompteByNum(Long numCompte)throws Exception {
+	public void deleteCompteByNum(Long numCompte) throws Exception {
 		daoCompte.delete(numCompte);
+
 	}
 
 	@Override
-	public CompteBancaire findCompteByNum(Long numCompte) throws Exception{
+	public CompteBancaire findCompteByNum(Long numCompte) throws Exception {
 		return daoCompte.findEById(numCompte);
 	}
 
 	@Override
-	public List<CompteBancaire> findAllCompte() throws Exception{
+	public List<CompteBancaire> findAllCompte() throws Exception {
 		return daoCompte.findAll();
 	}
 
 	@Override
-	public void createCompteForClient(CompteBancaire compte, Client client)throws Exception {
+	public void createCompteForClient(CompteBancaire compte, Client client) throws Exception {
 		client.addCompte(compte);
 		daoClient.update(client);
 	}
 
-	
 	@Override
 	public List<CompteBancaire> findAllComptesByClient(Client client) throws Exception {
 		List<CompteBancaire> listeComptes = daoCompte.findAll();
 		List<CompteBancaire> listeComptesByClient = new ArrayList<>();
-		for(CompteBancaire compte:listeComptes){
-			if(compte.getClient().equals(client)){
+		for (CompteBancaire compte : listeComptes) {
+			if (compte.getClient().equals(client)) {
 				listeComptesByClient.add(compte);
 			}
 		}
@@ -76,9 +78,7 @@ public class ServiceCompte implements IServiceCompte {
 		compte2.setSolde(s2);
 		daoCompte.update(compte1);
 		daoCompte.update(compte2);
-		
+
 	}
 
-	
-	
 }
