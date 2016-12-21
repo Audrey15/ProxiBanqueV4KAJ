@@ -39,7 +39,7 @@
 							<h:commandButton icon="ui-icon-close" value="x"
 								class="btn btn-danger"
 								action="#{clientControllerImpl.deleteClientById(client.idClient)}"
-								onclick="if (!confirm('Êtes-vous sûr de vouloir supprimer ce client ?')) return false" />
+								onclick="if (!confirm('Êtes-vous sûr de vouloir supprimer ce client ? Ses comptes seront automatiquement supprimés.')) return false" />
 						</p:column>
 
 						<p:column style="width:180px">
