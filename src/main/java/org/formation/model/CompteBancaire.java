@@ -72,7 +72,7 @@ public class CompteBancaire {
 
 	@Override
 	public String toString() {
-		return client.getNom() + " " + client.getPrenom() + ", Numero de compte : " + this.numCompte + ", Solde : " + this.solde ;
+		return client.getNom() + " " + client.getPrenom() + ", Numero de compte : " + this.numCompte + ", Type de compte : " + this.typeCompte + ", Solde : " + this.solde ;
 	}
 	
 	
