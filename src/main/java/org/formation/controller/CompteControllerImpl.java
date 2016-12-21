@@ -15,11 +15,19 @@ import org.formation.service.IServiceCompte;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.context.annotation.SessionScope;
 
+/**
+ * @author KAJ
+ * Implémente l'interface ICompteConseiller
+ *
+ */
 @Controller
 @ManagedBean
 @SessionScope
 public class CompteControllerImpl implements ICompteController {
 
+	/**
+	 * Injection du service compte
+	 */
 	@Resource
 	IServiceCompte serviceCompte;
 
@@ -102,6 +110,7 @@ public class CompteControllerImpl implements ICompteController {
 		return listeComptesByClient;
 	}
 
+	@Override
 	public void loadCompte(Long numCompte) throws Exception {
 		CompteBancaire compte = serviceCompte.findCompteByNum(numCompte);
 		ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();

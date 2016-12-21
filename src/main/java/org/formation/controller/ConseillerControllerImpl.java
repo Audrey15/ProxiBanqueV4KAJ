@@ -14,11 +14,19 @@ import org.formation.service.IServiceConseiller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.context.annotation.SessionScope;
 
+/**
+ * @author KAJ 
+ * Implémente l'interface IConseillerController
+ *
+ */
 @Controller
 @ManagedBean
 @SessionScope
 public class ConseillerControllerImpl implements IConseillerController {
 
+	/**
+	 * Injection du service conseiller
+	 */
 	@Resource
 	IServiceConseiller serviceConseiller;
 
@@ -61,6 +69,7 @@ public class ConseillerControllerImpl implements IConseillerController {
 		this.conseiller = conseiller;
 	}
 
+	@Override
 	public String deconnection() throws Exception {
 		FacesContext facesContext = FacesContext.getCurrentInstance();
 		ExternalContext externalContext = facesContext.getExternalContext();
@@ -102,11 +111,13 @@ public class ConseillerControllerImpl implements IConseillerController {
 		sessionMap.put("cons", conseiller);
 	}
 
+	@Override
 	public String loadConseillerForInfo(Long idCons) throws Exception {
 		loadConseiller(idCons);
 		return "/views/conseiller/infoconseiller";
 	}
 
+	@Override
 	public String loadConseillerForUpdate(Long idCons) throws Exception {
 		loadConseiller(idCons);
 		return "/views/conseiller/modifierconseiller";

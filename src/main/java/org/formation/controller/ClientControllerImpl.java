@@ -18,11 +18,19 @@ import org.formation.service.IServiceCompte;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.context.annotation.SessionScope;
 
+/**
+ * @author KAJ
+ * Implémente l'interface IClientController
+ *
+ */
 @Controller
 @ManagedBean
 @SessionScope
 public class ClientControllerImpl implements IClientController, Serializable {
 
+	/**
+	 * Injection du service client
+	 */
 	@Resource
 	IServiceClient serviceClient;
 
@@ -73,6 +81,7 @@ public class ClientControllerImpl implements IClientController, Serializable {
 		return listeClientsByConseiller;
 	}
 
+	@Override
 	public void loadClient(Long idCli) throws Exception {
 		Client client = serviceClient.findClientById(idCli);
 		ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();

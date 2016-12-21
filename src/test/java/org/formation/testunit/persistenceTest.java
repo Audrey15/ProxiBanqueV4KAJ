@@ -7,7 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
-import org.formation.config.ConfigurationClasse;
+
 import org.formation.dao.DaoClientImpl;
 import org.formation.dao.DaoCompteImpl;
 import org.formation.dao.DaoConseillerImpl;
@@ -44,7 +44,7 @@ public class persistenceTest {
 	public void testDaoClientImpl() throws Exception {
 		Client client = new Client();
 		daoClient.create(client);
-		assertEquals(2, daoClient.count());
+		assertEquals(3, daoClient.count());
 	}
 	
 	@Test
@@ -52,7 +52,7 @@ public class persistenceTest {
 	public void testDaoConseillerImpl() throws Exception {
 		Conseiller cons = new Conseiller();
 		daoConseiller.create(cons);
-		assertEquals(1, daoConseiller.count());
+		assertEquals(2, daoConseiller.count());
 	}
 
 	@Test
@@ -60,21 +60,9 @@ public class persistenceTest {
 	public void testDaoCompteImpl() throws Exception {
 		CompteBancaire compte = new CompteBancaire();
 		daoCompte.create(compte);
-		assertEquals(2, daoCompte.count());
+		assertEquals(4, daoCompte.count());
 	}
 	
-//	@Test
-//	@Transactional
-//	public void testSauverClientAvecCompte() throws Exception {
-//		Client client = new Client();
-//		client.getListeComptes().add(new CompteBancaire());
-//		entityManager.persist(client);
-//		entityManager.flush();
-//		entityManager.clear();
-//		Client autre = entityManager.find(Client.class, client.getId());
-//		assertEquals(0, autre.getListeComptes().size());
-//		assertEquals(autre, autre.getListeComptes().iterator().next().getClient());
-//
-//	}
+
 	
 }
