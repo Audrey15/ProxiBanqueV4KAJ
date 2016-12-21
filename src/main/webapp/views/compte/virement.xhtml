@@ -19,7 +19,7 @@
 							<p:outputLabel for="debiteur" value="Compte débiteur :" />
 							<p:selectOneMenu id="debiteur"
 								value="#{compteControllerImpl.compteDebiteur.numCompte}"
-								style="width:550px">
+								style="width:800px">
 								<f:selectItems id="debiteurs"
 									value="#{compteControllerImpl.findAllComptes()}" var="compte"
 									itemValue="#{compte.numCompte}" />
@@ -29,15 +29,20 @@
 							<p:outputLabel for="crediteur" value="Compte créditeur :" />
 							<p:selectOneMenu id="crediteur"
 								value="#{compteControllerImpl.compteCrediteur.numCompte}"
-								style="width:550px">
+								style="width:800px">
 								<f:selectItems id="crediteurs"
 									value="#{compteControllerImpl.findAllComptes()}" var="compte"
 									itemValue="#{compte.numCompte}" />
 							</p:selectOneMenu>
+							
 							<br />
 							<p:outputLabel id="montant" for="montant" value="Montant :" />
-							<p:inputText value="#{compteControllerImpl.montant}" />
+							<p:inputText value="#{compteControllerImpl.montant}" >
+							<f:validateDoubleRange minimum="0.0" />
+							</p:inputText>
 							<br />
+							
+							
 							<h:commandButton value="Transfert" class="btn btn-primary"
 								action="#{compteControllerImpl.virement(compteControllerImpl.compteDebiteur.numCompte, compteControllerImpl.compteCrediteur.numCompte, compteControllerImpl.montant)}" />
 						</h:panelGrid>

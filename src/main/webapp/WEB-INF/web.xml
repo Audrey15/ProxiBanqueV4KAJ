@@ -85,11 +85,12 @@
 			<role-name>conseiller</role-name>
 		</auth-constraint>
 	</security-constraint>
+	
+
 	<security-constraint>
 		<web-resource-collection>
 			<web-resource-name>Wildcard * means all the resources in the
-				application
-				require authentication
+				application require authentication
 			</web-resource-name>
 			<url-pattern>/index.xhtml</url-pattern>
 			<url-pattern>/views/conseiller/*</url-pattern>
@@ -102,12 +103,18 @@
 			<role-name>directeur</role-name>
 		</auth-constraint>
 	</security-constraint>
+<<<<<<< HEAD
 
 <!-- 	<login-config> -->
 <!-- 	<auth-method>BASIC</auth-method> -->
 <!-- 	</login-config> -->
 
 
+=======
+<!-- 	<login-config> -->
+<!-- 	<auth-method>BASIC</auth-method> -->
+<!-- 	</login-config> -->
+>>>>>>> origin/master
 	<login-config>
 		<auth-method>FORM</auth-method>
 		<form-login-config>
