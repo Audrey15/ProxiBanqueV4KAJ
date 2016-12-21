@@ -23,14 +23,6 @@
 							<h:outputText value="#{conseiller.prenom}" />
 						</p:column>
 
-						<p:column headerText="Login">
-							<h:outputText value="#{conseiller.login}" />
-						</p:column>
-
-						<p:column headerText="Mot de Passe">
-							<h:outputText value="#{conseiller.motDePasse}" />
-						</p:column>
-
 						<p:column style="width:78px">
 							<h:commandButton value="Info" class="btn btn-info"
 								action="#{conseillerControllerImpl.loadConseillerForInfo(conseiller.idCons)}" />
