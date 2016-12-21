@@ -32,13 +32,9 @@
 							<h:outputText value="#{compte.client.nom}" />
 						</p:column>
 
-						<p:column>
-							<h:commandButton value="Virement" 
-							action="/views/compte/virement.xhtml"/>
-						</p:column>
 
-						<p:column>
-							<h:commandButton value="Supprimer"
+						<p:column style="width:55px">
+							<h:commandButton class="btn btn-danger" value="x"
 								action="#{compteControllerImpl.deleteCompteByNum(compte.numCompte)}"
 								onclick="if (!confirm('Etes-vous sûr de vouloir supprimer ce compte?')) return false" />
 						</p:column>
