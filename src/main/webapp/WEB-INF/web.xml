@@ -103,18 +103,7 @@
 			<role-name>directeur</role-name>
 		</auth-constraint>
 	</security-constraint>
-<<<<<<< HEAD
 
-<!-- 	<login-config> -->
-<!-- 	<auth-method>BASIC</auth-method> -->
-<!-- 	</login-config> -->
-
-
-=======
-<!-- 	<login-config> -->
-<!-- 	<auth-method>BASIC</auth-method> -->
-<!-- 	</login-config> -->
->>>>>>> origin/master
 	<login-config>
 		<auth-method>FORM</auth-method>
 		<form-login-config>
