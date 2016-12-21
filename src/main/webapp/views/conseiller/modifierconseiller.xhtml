@@ -41,8 +41,8 @@
 
 							<h:outputLabel for="motdepasse" value="Mot de passe *" />
 							<div>&nbsp;</div>
-							<p:inputText id="motdepasse" value="#{cons.motDePasse}" required="true"
-								label="motdepasse" />
+							<p:inputText id="motdepasse" value="#{cons.motDePasse}"
+								required="true" label="motdepasse" />
 							<p:message for="motdepasse" />
 
 							<h:outputLabel for="email" value="Email *" />
@@ -89,9 +89,8 @@
 
 						<br />
 
-						<p:commandButton value="Mettre à jour"
-							action="#{conseillerControllerImpl.updateConseiller(cons)}"
-							icon="ui-icon-check" validateClient="true" />
+						<h:commandButton value="Mettre à jour" class="btn btn-primary"
+							action="#{conseillerControllerImpl.updateConseiller(cons)}" />
 					</h:form>
 				</center>
 			</p:fieldset>
