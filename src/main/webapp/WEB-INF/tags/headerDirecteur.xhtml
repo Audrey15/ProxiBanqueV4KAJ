@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<body>
+
+	<ui:composition>
+
+
+		<nav class="navbar navbar-default" role="navigation">
+		<div class="container-fluid">
+
+			<div class="navbar-header">
+				<a class="navbar-brand"><img
+					src="https://img1.lght.pics/b4b5ee5ac34c8ee5bb11e0e0ef0459e9.png" />proxiBanque</a>
+			</div>
+
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="#">Déconnexion</a></li>
+
+			</ul>
+
+
+
+			<ul class="nav navbar-nav navbar-right">
+				<li class="dropdown"><a href="#" class="dropdown-toggle"
+					data-toggle="dropdown" role="button" aria-haspopup="true"
+					aria-expanded="false">Conseiller <span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><h:link value="Liste des conseillers" outcome="/views/conseiller/listeconseillers.xhtml "/></li>
+						<li><h:link value="Ajouter un conseiller" outcome="/views/conseiller/ajouterconseiller.xhtml "/></li>
+					</ul></li>
+			</ul>
+
+		</div>
+		</nav>
+
+
+
+
+	</ui:composition>
+
+</body>
+</html>
