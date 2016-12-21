@@ -59,7 +59,7 @@ public class persistenceTest {
 	public void testDaoCompteImpl() throws Exception {
 		CompteBancaire compte = new CompteBancaire();
 		daoCompte.create(compte);
-		assertEquals(4, daoCompte.count());
+		assertEquals(5, daoCompte.count());
 	}
 
 }
