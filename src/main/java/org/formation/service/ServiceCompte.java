@@ -32,6 +32,9 @@ public class ServiceCompte implements IServiceCompte {
 
 	@Override
 	public void deleteCompteByNum(Long numCompte)throws Exception {
+		Client client = daoCompte.findEById(numCompte).getClient();
+		if(client.getListeComptes().size()==1)
+			daoClient.delete(client);
 		daoCompte.delete(numCompte);
 	}
 

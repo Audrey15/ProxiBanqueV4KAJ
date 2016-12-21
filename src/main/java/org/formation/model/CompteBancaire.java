@@ -11,9 +11,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import org.springframework.web.context.annotation.ApplicationScope;
+import org.springframework.web.context.annotation.SessionScope;
 
 @Entity
-@ApplicationScope
+@SessionScope
 @ManagedBean
 public class CompteBancaire {
 	

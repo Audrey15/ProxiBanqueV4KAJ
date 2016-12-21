@@ -17,11 +17,12 @@ import javax.persistence.OneToMany;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.ApplicationScope;
+import org.springframework.web.context.annotation.SessionScope;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @ManagedBean
-@ApplicationScope
+@SessionScope
 public class Conseiller extends Employe {
 
 	@Id

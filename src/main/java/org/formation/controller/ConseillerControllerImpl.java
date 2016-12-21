@@ -15,10 +15,11 @@ import org.formation.model.Employe;
 import org.formation.service.IServiceConseiller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.context.annotation.ApplicationScope;
+import org.springframework.web.context.annotation.SessionScope;
 
 @Controller
 @ManagedBean
-@ApplicationScope
+@SessionScope
 public class ConseillerControllerImpl implements IConseillerController {
 
 	@Resource

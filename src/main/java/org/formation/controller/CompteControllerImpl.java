@@ -17,10 +17,11 @@ import org.formation.service.IServiceCompte;
 import org.hibernate.Hibernate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.context.annotation.ApplicationScope;
+import org.springframework.web.context.annotation.SessionScope;
 
 @Controller
 @ManagedBean
-@ApplicationScope
+@SessionScope
 public class CompteControllerImpl implements ICompteController {
 
 	@Resource

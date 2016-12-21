@@ -20,10 +20,11 @@ import org.formation.service.IServiceClient;
 import org.formation.service.IServiceCompte;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.context.annotation.ApplicationScope;
+import org.springframework.web.context.annotation.SessionScope;
 
 @Controller
 @ManagedBean
-@ApplicationScope
+@SessionScope
 public class ClientControllerImpl implements IClientController, Serializable {
 
 	@Resource
