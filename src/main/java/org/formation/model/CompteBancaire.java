@@ -3,17 +3,16 @@ package org.formation.model;
 import javax.faces.bean.ManagedBean;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import org.springframework.web.context.annotation.ApplicationScope;
+import org.springframework.web.context.annotation.SessionScope;
 
 @Entity
-@ApplicationScope
+@SessionScope
 @ManagedBean
 public class CompteBancaire {
 	
@@ -25,7 +24,7 @@ public class CompteBancaire {
 	
 	private TypeCompte typeCompte;
 
-	@ManyToOne(cascade = { CascadeType.ALL })
+	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
 	@JoinColumn(name = "client_id")
 	private Client client;
 	

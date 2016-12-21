@@ -8,17 +8,15 @@ import javax.annotation.Resource;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
-import javax.servlet.http.HttpSession;
 
 import org.formation.model.Conseiller;
-import org.formation.model.Employe;
 import org.formation.service.IServiceConseiller;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.context.annotation.ApplicationScope;
+import org.springframework.web.context.annotation.SessionScope;
 
 @Controller
 @ManagedBean
-@ApplicationScope
+@SessionScope
 public class ConseillerControllerImpl implements IConseillerController {
 
 	@Resource
@@ -63,16 +61,13 @@ public class ConseillerControllerImpl implements IConseillerController {
 		this.conseiller = conseiller;
 	}
 
-	public String authentification() throws Exception {
-		List<Conseiller> conseillers = serviceConseiller.findAllConseiller();
-		for (Conseiller cons : conseillers) {
-
-			if ((conseiller.getLogin().equals(login)) && (conseiller.getMotDePasse().equals(motDePasse))) {
-				return "/views/client/listeclients";
-			}
-
-		}
-		return "login";
+	public String deconnection() throws Exception {
+		FacesContext facesContext = FacesContext.getCurrentInstance();
+		ExternalContext externalContext = facesContext.getExternalContext();
+		externalContext.invalidateSession();
+		externalContext.setResponseStatus(401);
+		facesContext.responseComplete();
+		return "/index?faces-redirect=true";
 	}
 
 	@Override
