@@ -80,14 +80,14 @@ public class CompteControllerImpl implements ICompteController {
 	@Override
 	public String updateCompte(CompteBancaire compte) throws Exception {
 		serviceCompte.updateCompte(compte);
-		return "/views/compte/listecomptes";
+		return "/views/compte/listeclients";
 
 	}
 
 	@Override
 	public String deleteCompteByNum(Long numCompte) throws Exception {
 		serviceCompte.deleteCompteByNum(numCompte);
-		return "/views/compte/listecomptes";
+		return "/views/compte/listeclients";
 	}
 
 	@Override

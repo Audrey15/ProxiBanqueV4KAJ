@@ -20,25 +20,23 @@
 			</div>
 
 			<ul class="nav navbar-nav navbar-right">
-<<<<<<< HEAD
-			<h:form>
-				<li><h:commandLink value="Deconnection" action="#{conseillerControllerImpl.deconnection()}"/></li>
-			</h:form>
-=======
-				<li><a href="#">Déconnexion</a></li>
-				
->>>>>>> origin/master
+				<h:form>
+					<li><h:commandButton class="btn btn-secondary"
+							value="Déconnexion"
+							action="#{conseillerControllerImpl.deconnection()}" /></li>
+				</h:form>
 			</ul>
 
 
 			<ul class="nav navbar-nav navbar-right">
-				<li class="dropdown">
-				<a class="dropdown-toggle"
+				<li class="dropdown"><a class="dropdown-toggle"
 					data-toggle="dropdown" role="button" aria-haspopup="true"
 					aria-expanded="false">Compte <span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><h:link value="Liste des comptes" outcome="/views/compte/listecomptes.xhtml "/></li>
-						<li><h:link value="Virement" outcome="/views/compte/virement.xhtml "/></li>
+						<li><h:link value="Liste des comptes"
+								outcome="/views/compte/listecomptes.xhtml " /></li>
+						<li><h:link value="Virement"
+								outcome="/views/compte/virement.xhtml " /></li>
 					</ul></li>
 			</ul>
 
@@ -47,8 +45,10 @@
 					data-toggle="dropdown" role="button" aria-haspopup="true"
 					aria-expanded="false">Client <span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><h:link value="Liste des clients" outcome="/views/client/listeclients.xhtml "/></li>
-						<li><h:link value="Ajouter un client" outcome="/views/client/ajouterclient.xhtml "/></li>
+						<li><h:link value="Liste des clients"
+								outcome="/views/client/listeclients.xhtml " /></li>
+						<li><h:link value="Ajouter un client"
+								outcome="/views/client/ajouterclient.xhtml " /></li>
 					</ul></li>
 			</ul>
 
