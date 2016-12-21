@@ -14,6 +14,13 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javassist.bytecode.SignatureAttribute.TypeVariable;
 
+/**
+ * @author Adminl
+ *
+ * @param <E>
+ * 
+ * classe générique dao, implémente l'interface générique
+ */
 @Repository
 public class EntityDaoImpl<E> implements IEntityDao<E> {
 

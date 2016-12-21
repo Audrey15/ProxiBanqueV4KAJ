@@ -12,6 +12,11 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 
+/**
+ * @author KAJ
+ * Classe modèle DirecteurAgence, étend la classe Employe
+ *
+ */
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED)
 public class DirecteurAgence extends Employe {

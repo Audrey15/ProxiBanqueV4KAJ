@@ -2,6 +2,10 @@ package org.formation.model;
 
 import javax.persistence.MappedSuperclass;
 
+/**
+ * @author KAJ
+ * Classe modèle Employe, étend la classe Personne
+ */
 @MappedSuperclass
 public class Employe extends Personne {
 

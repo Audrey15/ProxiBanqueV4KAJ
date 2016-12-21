@@ -2,6 +2,10 @@ package org.formation.model;
 
 import javax.persistence.MappedSuperclass;
 
+/**
+ * @author KAJ
+ * Classe modèle Personne
+ */
 @MappedSuperclass
 public class Personne {
 

@@ -17,6 +17,11 @@ import javax.persistence.OneToMany;
 
 import org.springframework.web.context.annotation.SessionScope;
 
+/**
+ * @author KAJ
+ * Classe modèle client, étend la classe Personne
+ *
+ */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @ManagedBean

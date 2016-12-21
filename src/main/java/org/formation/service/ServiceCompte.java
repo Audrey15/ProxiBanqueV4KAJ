@@ -13,12 +13,22 @@ import org.formation.model.CompteBancaire;
 import org.hibernate.annotations.Target;
 import org.springframework.stereotype.Service;
 
+/**
+ * @author KAJ
+ * Classe service compte
+ */
 @Service
 public class ServiceCompte implements IServiceCompte {
 
+	/**
+	 * Injection de la dao compte
+	 */
 	@Resource(name = "daoCompte")
 	private IDaoCompte daoCompte;
 
+	/**
+	 * Injection de la dao client
+	 */
 	@Resource
 	private IDaoClient daoClient;
 
