@@ -1,7 +1,6 @@
 package org.formation.controller;
 
 import java.util.ArrayList;
-
 import java.util.List;
 import java.util.Map;
 
@@ -12,11 +11,8 @@ import javax.faces.context.FacesContext;
 
 import org.formation.model.Client;
 import org.formation.model.CompteBancaire;
-import org.formation.model.TypeCompte;
 import org.formation.service.IServiceCompte;
-import org.hibernate.Hibernate;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.context.annotation.ApplicationScope;
 import org.springframework.web.context.annotation.SessionScope;
 
 @Controller
