@@ -36,11 +36,11 @@
 
 
 						<p:column style="width:55px">
-							<h:commandButton icon="ui-icon-close"
+							<h:commandButton
 								action="#{clientControllerImpl.deleteClientById(client.idClient)}"
 								onclick="if (!confirm('Êtes-vous sûr de vouloir supprimer ce client ?')) return false" />
 						</p:column>
-						
+
 						<p:column style="width:195px">
 							<h:commandButton value="Liste des comptes"
 								action="#{clientControllerImpl.loadClientForComptes(client.idClient)}" />
