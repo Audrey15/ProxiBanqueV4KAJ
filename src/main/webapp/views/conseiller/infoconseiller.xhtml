@@ -8,7 +8,7 @@
 
 <h:body>
 
-	<ui:composition template="/WEB-INF/tags/layout.xhtml">
+	<ui:composition template="/WEB-INF/tags/layoutDirecteur.xhtml">
 		<ui:define name="content">
 
 
@@ -23,8 +23,8 @@
 							<img
 								src="https://img.lght.pics/4689b198268fbf2dadec7141758c9c15.png" />
 
-							<h:outputText value="nom : #{cons.nom}" />
-							<h:outputText value="prénom : #{cons.prenom}" />
+							<h:outputText value="Nom : #{cons.nom}" />
+							<h:outputText value="Prénom : #{cons.prenom}" />
 
 						</h:panelGrid>
 					</p:tab>
@@ -35,8 +35,8 @@
 								src="https://img1.lght.pics/1b17d38e6d576c856ca3587b2dd4624d.png" />
 
 
-							<h:outputText value="téléphone : #{cons.telephone}" />
-							<h:outputText value="email : #{cons.email}" />
+							<h:outputText value="Téléphone : #{cons.telephone}" />
+							<h:outputText value="Email : #{cons.email}" />
 
 						</h:panelGrid>
 					</p:tab>
@@ -46,20 +46,17 @@
 						<h:panelGrid columns="1" cellpadding="10">
 							<img
 								src="https://img1.lght.pics/352d8fae92a63a64b3bc0481183c6fe7.png" />
-							<h:outputText value="adresse: #{cons.adresse}" />
-							<h:outputText value="ville : #{cons.ville}" />
-							<h:outputText value="code postal : #{cons.codePostal}" />
+							<h:outputText value="Adresse: #{cons.adresse}" />
+							<h:outputText value="Ville : #{cons.ville}" />
+							<h:outputText value="Code postal : #{cons.codePostal}" />
 						</h:panelGrid>
 					</p:tab>
 
 				</p:tabView>
 				<br />
 				<h:panelGrid id="grid" columns="2" cellpadding="5">
-					<p:commandButton value="mettre à jour"
+					<p:commandButton value="Mettre à jour"
 						action="#{conseillerControllerImpl.loadConseillerForUpdate(cons.idCons)}" />
-
-					<p:commandButton value="retour" icon="ui-icon-close" type="button"
-						onclick="history.go(-1)" />
 
 				</h:panelGrid>
 
